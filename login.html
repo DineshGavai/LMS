@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | SmartLearn LMS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1 class="logo">SmartLearn LMS</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="login.html" class="btn-login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="auth-container">
+      <div class="form-box">
+        <h2>Student Login</h2>
+        <form id="loginForm">
+          <input
+            type="text"
+            id="login-username"
+            placeholder="Enter Username"
+            required
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Enter Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+
+        <p>
+          Don’t have an account?
+          <a href="#" id="show-register">Register here</a>
+        </p>
+      </div>
+
+      <div class="form-box hidden" id="registerBox">
+        <h2>Student Registration</h2>
+        <form id="registerForm">
+          <input
+            type="text"
+            id="reg-username"
+            placeholder="Create Username"
+            required
+          />
+          <input
+            type="email"
+            id="reg-email"
+            placeholder="Enter Email"
+            required
+          />
+          <input
+            type="password"
+            id="reg-password"
+            placeholder="Create Password"
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+
+        <p>
+          Already have an account? <a href="#" id="show-login">Login here</a>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 SmartLearn LMS | Created by Students</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
