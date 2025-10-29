@@ -1,4 +1,4 @@
-/* Login & Register */
+/* ---------------- Login & Register ---------------- */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@
   display: none;
 }
 
-/* Navbar */
+/* ---------------- Navbar ---------------- */
 .navbar {
   background-color: #2e8b57; /* chalkboard green */
   color: white;
@@ -107,4 +107,53 @@
 .btn-login:hover {
   background-color: #ffcc00;
   color: white;
+}
+
+/* ---------------- Announcements (Simple Linear Style) ---------------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+nav {
+  background: #2e8b57;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+h2 {
+  color: #2e8b57;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div {
+  background: white;
+  padding: 10px 15px;
+  margin: 15px auto;
+  border-radius: 6px;
+  width: 80%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ---------------- Small Screen Fix (Optional Responsive) ---------------- */
+@media (max-width: 600px) {
+  div {
+    width: 95%;
+    padding: 12px;
+  }
 }
