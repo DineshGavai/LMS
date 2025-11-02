@@ -7,9 +7,8 @@
 .question .options {
   display: flex;
   justify-content: flex-start;
-  gap: 16px;
   flex-wrap: wrap;
-  margin: 16px 0;
+  gap: 8px;
 }
 
 .question .options label {
@@ -26,6 +25,16 @@
   background-color: #f0f0f0; 
 }
 
+.question .options label.correct {
+  background-color: rgba(0, 255, 0, 0.2); 
+  color: green;
+}
+
+.question .options label.wrong {
+  background-color: rgba(255, 0, 0, 0.2); 
+  color: red;
+}
+
 .question input[type="radio"] {
   accent-color: #007bff;
   width: 22px;
@@ -33,6 +42,18 @@
   margin: 0;
 }
 
+.question .options label.correct input[type="radio"] {
+  accent-color: green;
+}
+
+.question .options label.wrong input[type="radio"] {
+  accent-color: red;
+}
+
 .question button {
   margin-left: auto;
+}
+
+#score {
+  font-size: 20px;
 }

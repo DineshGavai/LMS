@@ -32,7 +32,7 @@ const courses = [
 
 courses.forEach((course) => {
   const courseTile = document.createElement("a");
-  courseTile.href = `subject.html?course=${encodeURIComponent(course.title)}`;
+  courseTile.href = `subject.html?subject=${encodeURIComponent(course.title)}`;
   courseTile.className = "tile";
   courseTile.innerHTML = `
         <h3>${course.title}</h3>
