@@ -1,3 +1,17 @@
+#resources .tile {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#resources button.website {
+  background-color: #3498db;
+}
+
+#resources button.video {
+  background-color: #e74c3c;
+}
+
 .question {
   border-radius: 8px;
   border: 1px solid #ddd;
@@ -22,16 +36,16 @@
 }
 
 .question .options label:hover {
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
 }
 
 .question .options label.correct {
-  background-color: rgba(0, 255, 0, 0.2); 
+  background-color: rgba(0, 255, 0, 0.2);
   color: green;
 }
 
 .question .options label.wrong {
-  background-color: rgba(255, 0, 0, 0.2); 
+  background-color: rgba(255, 0, 0, 0.2);
   color: red;
 }
 
