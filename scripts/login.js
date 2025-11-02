@@ -1,26 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
+let form = document.getElementById("loginForm");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Stop page reload
+form.onsubmit = function (event) {
+  event.preventDefault();
 
-    const email = document.getElementById("login-email").value.trim();
-    const password = document.getElementById("login-password").value.trim();
+  let email = document.getElementById("login-email").value.trim();
+  let pass = document.getElementById("login-password").value.trim();
 
-    const storedUser = localStorage.getItem(email);
+  let saved = localStorage.getItem(email);
 
-    if (!storedUser) {
-      alert("No account found with this email!");
-      return;
-    }
+  if (!saved) {
+    alert("No account found with this email!");
+    return;
+  }
 
-    const user = JSON.parse(storedUser);
+  let user = JSON.parse(saved);
+  
+  if (user.password === pass) {
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    if (user.password === password) {
-      localStorage.setItem("loggedInUser", email);
-      window.location.href = "/courses.html"; //  redirect
-    } else {
-      alert("Incorrect password!");
-    }
-  });
-});
+    window.location.href = "/courses.html";
+  } else {
+    alert("Wrong password!");
+  }
+};

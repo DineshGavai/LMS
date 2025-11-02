@@ -1,0 +1,15 @@
+.tile.profile-card {
+  flex-direction: row;
+}
+
+#courses .tile:hover {
+  background-color: #f9f9f9;
+}
+
+#courses .tile button {
+  margin-left: auto;
+  border-radius: 50%;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+}

@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Announcements | SmartLearn LMS</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <h1>SmartLearn LMS</h1>
-        <a href="index.html">Home</a> | <a href="courses.html">Courses</a> |
-        <a href="assignments.html">Assignments</a> |
-        <a href="announcements.html">Announcements</a> |
-        <a href="login.html">Login</a>
-      </nav>
-    </header>
 
-    <h2>📢 Announcements</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Announcements | SmartLearn LMS</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/announcement.css" />
+</head>
 
-    <div>
-      <h3>🎉 Science Exhibition Coming Soon!</h3>
-      <p><b>Date:</b> 5th November 2025</p>
-      <p>
-        All students are encouraged to participate. Topics on Clean Energy and
-        Recycling are preferred.
-      </p>
-      <hr />
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Logo -->
+    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+    <!-- Nav -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="announcements.html" class="active">Announcements</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Announcements</h1>
+
+    <div id="announcements">
+      <!-- Announcements will be dynamically loaded here -->
     </div>
+  </main>
 
-    <div>
-      <h3>🧠 Quiz Competition</h3>
-      <p><b>Date:</b> 12th November 2025</p>
-      <p>
-        Class 6–8 students can register at the library. Exciting prizes await!
-      </p>
-      <hr />
-    </div>
+  <footer>
+    <p>© 2025 SmartLearn LMS | Created by Students</p>
+  </footer>
 
-    <div>
-      <h3>🏫 Parent–Teacher Meeting</h3>
-      <p><b>Date:</b> 20th November 2025</p>
-      <p>Parents are requested to attend and discuss their ward’s progress.</p>
-      <hr />
-    </div>
+  <script src="./scripts/announcements.js"></script>
+</body>
 
-    <div>
-      <h3>📚 New Courses Added!</h3>
-      <p><b>Date:</b> 25th November 2025</p>
-      <p>
-        Explore new topics under Environmental Studies and General Knowledge.
-      </p>
-    </div>
-  </body>
 </html>

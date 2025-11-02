@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | SmartLearn LMS</title>
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <main class="auth-container">
-      <div class="form-box">
-        <h2>Student Login</h2>
-        <form id="loginForm">
-          <input
-            type="text"
-            id="login-email"
-            placeholder="Enter Email"
-            required
-          />
-          <input
-            type="password"
-            id="login-password"
-            placeholder="Enter Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
 
-        <p>
-          Don't have an account?
-          <a href="register.html">Register here</a>
-        </p>
-      </div>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | SmartLearn LMS</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/login-register.css">
+</head>
 
-    <footer>
-      <p>© 2025 SmartLearn LMS | Created by Students</p>
-    </footer>
-    <script src="scripts/login.js"></script>
-  </body>
+<body>
+
+  <main class="login-register">
+    <form id="loginForm" class="tile">
+      <h1>Student Login</h1>
+
+      <input type="text" id="login-email" placeholder="Enter Email" required />
+      <input type="password" id="login-password" placeholder="Enter Password" required />
+      <button type="submit">Login</button>
+
+      <a href="register.html">Register here</a>
+
+    </form>
+
+  </main>
+
+  <script src="scripts/login.js"></script>
+</body>
+
 </html>

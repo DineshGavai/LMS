@@ -45,6 +45,15 @@ nav a.active {
   border-bottom: 3px solid #000;
 }
 
+/* Input */
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 /* Button */
 
 button {
@@ -77,10 +86,15 @@ main {
   margin: auto;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 36px;
 }
 
+.tile h1,
+.tile h2 {
+  margin: 0;
+}
 
 h3 {
   color: #000;
@@ -113,7 +127,7 @@ p {
   margin-right: 20px;
 }
 
-.profile-name {
+#profile_name {
   font-size: 1.5em;
   font-weight: bold;
   color: #333;
@@ -121,7 +135,7 @@ p {
   margin-bottom: 5px;
 }
 
-.profile-email {
+#profile_email {
   font-size: 0.9em;
   color: #666;
   margin: 0;
@@ -131,8 +145,8 @@ p {
   margin-left: auto;
 }
 
-/* Courses */
-.course-tile {
+/* Tiles */
+.tile {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
@@ -143,16 +157,12 @@ p {
   gap: 16px;
 }
 
-.course-tile:hover {
-  background-color: #f9f9f9;
-}
 
-.course-tile button {
-  margin-left: auto;
-  border-radius: 50%;
-  padding: 0;
-  width: 36px;
-  height: 36px;
+/* Button Box */
+.btn-box {
+  display: flex;
+  padding: 24px;
+  justify-content: flex-end;
 }
 
 /* Footer */
