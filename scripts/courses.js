@@ -1,36 +1,21 @@
-// Render user name
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-if (loggedInUser) {
-  document.getElementById("profile_name").textContent = loggedInUser.name;
-  document.getElementById("profile_email").textContent = loggedInUser.email;
-} else {
-  // If no user is logged in, redirect to login page
-  window.location.href = "login.html";
-}
-
-// JSON data categorized by grade
-const coursesByGrade = {
-  5: [
-    {
-      title: "English",
-      description:
-        "Improve your reading, writing, and speaking skills with fun grammar lessons and short stories.",
-      chapters: 8,
-    },
-    {
-      title: "Mathematics",
-      description:
-        "Learn addition, subtraction, multiplication, and division with real-world examples.",
-      chapters: 10,
-    },
-    {
-      title: "Science",
-      description:
-        "Explore animals, plants, and the environment to understand how nature works.",
-      chapters: 9,
-    },
-  ],
+// JSON For Courses (Example Data)
+const courses = [
+  {
+    title: "English",
+    description:
+      "Explore the world of literature, language, and communication. This course covers grammar, writing skills, reading comprehension, and critical analysis to enhance your proficiency in English.",
+  },
+  {
+    title: "Mathematics",
+    description:
+      "Dive into the fascinating world of numbers, equations, and problem-solving. This course covers algebra, geometry, calculus, and statistics to build a strong foundation in mathematical concepts.",
+  },
+  {
+    title: "Science",
+    description:
+      "Uncover the mysteries of the natural world through this comprehensive science course. Topics include biology, chemistry, physics, and earth sciences, fostering a deep understanding of scientific principles and inquiry.",
+  },
+];
 
   6: [
     {
@@ -166,13 +151,4 @@ const gradeSelect = document.getElementById("gradeSelect");
 gradeSelect.addEventListener("change", (e) => {
   const selectedGrade = e.target.value;
   renderCourses(selectedGrade);
-});
-
-// Render default grade (8)
-renderCourses(8);
-
-// Log Out
-document.getElementById("logout_btn").addEventListener("click", function () {
-  localStorage.removeItem("loggedInUser");
-  window.location.href = "login.html";
 });

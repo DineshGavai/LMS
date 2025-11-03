@@ -1,7 +1,3 @@
-.tile.profile-card {
-  flex-direction: row;
-}
-
 #courses .tile:hover {
   background-color: #f9f9f9;
 }
