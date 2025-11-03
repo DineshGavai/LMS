@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Planner</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/study-planner.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <!-- Logo -->
+        <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+        <!-- Nav -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="announcements.html">Announcements</a>
+            <a href="study-planner.html" class="active">Study Planner</a>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <div class="container">
+            <h1>📘 Study Planner</h1>
+
+            <div class="tile">
+                <label>Select Grade:</label>
+                <select id="gradeSelect">
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8" selected>Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                </select>
+
+                <label>Select Courses:</label>
+                <div id="courseList">
+                    <!-- Courses will be loaded here using JS -->
+                </div>
+       
+                <label for="targetDate">Select Target Date:</label>
+                <input type="date" id="targetDate" />
+            </div>
+
+            <!-- Step 4: Create Schedule -->
+            <div class="btn-box">
+                <button id="createScheduleBtn">Create Schedule</button>
+            </div>
+
+            <!-- Step 5: Display Study Schedule + Progress -->
+            <div id="studySchedule">
+                <!-- Schedule cards will be added here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/study-planner.js"></script>
+</body>
+
+</html>

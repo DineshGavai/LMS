@@ -19,6 +19,7 @@
       <a href="index.html">Home</a>
       <a href="courses.html" class="active">Courses</a>
       <a href="announcements.html">Announcements</a>
+      <a href="study-planner.html">Study Planner</a>
     </nav>
   </header>
 
@@ -35,16 +36,34 @@
       <button id="logout_btn">Logout</button>
     </div>
 
+
     <div>
-      <h1>My Courses</h1>
+      <h1>Courses</h1>
+
+      <div class="btn-box">
+
+        <select id="gradeSelect">
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+          <option value="7">Grade 7</option>
+          <option value="8" selected>Grade 8</option>
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+        </select>
+      </div>
 
       <div id="courses">
         <!-- Course tiles will be dynamically added here -->
       </div>
     </div>
+
+
+
   </main>
 
-  <footer><p>© 2025 SmartLearn LMS | Created by Students</p></footer>
+  <footer>
+    <p>© 2025 SmartLearn LMS | Created by Students</p>
+  </footer>
 
   <script src="./scripts/courses.js"></script>
 </body>

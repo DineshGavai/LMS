@@ -25,7 +25,7 @@
   gap: 8px;
 }
 
-.question .options label {
+label:has(input) {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -35,7 +35,7 @@
   transition: background-color 0.3s;
 }
 
-.question .options label:hover {
+ label:has(input):hover {
   background-color: #f0f0f0;
 }
 
@@ -49,18 +49,18 @@
   color: red;
 }
 
-.question input[type="radio"] {
+label input {
   accent-color: #007bff;
   width: 22px;
   height: 22px;
   margin: 0;
 }
 
-.question .options label.correct input[type="radio"] {
+label.correct input {
   accent-color: green;
 }
 
-.question .options label.wrong input[type="radio"] {
+label.wrong input {
   accent-color: red;
 }
 

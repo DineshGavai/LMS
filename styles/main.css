@@ -46,12 +46,34 @@ nav a.active {
 }
 
 /* Input */
-input[type="text"], input[type="email"], input[type="password"] {
+input,
+select {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+label:has(input) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+label:has(input):hover {
+  background-color: #f0f0f0;
+}
+
+label input {
+  accent-color: #007bff;
+  width: 22px;
+  height: 22px;
+  margin: 0;
 }
 
 /* Button */
@@ -158,7 +180,6 @@ p {
   gap: 16px;
 }
 
-
 /* Button Box */
 .btn-box {
   display: flex;
@@ -166,6 +187,33 @@ p {
   align-items: center;
   gap: 8px;
   padding: 24px;
+}
+
+.btn-box select {
+  width: 150px;
+  margin-left: auto;
+}
+
+/* Other */
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.badge {
+  background-color: #eef3ff;
+  color: #007bff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.chapters {
+  background-color: #e7ffe7;
+  color: #28a745;
 }
 
 /* Footer */

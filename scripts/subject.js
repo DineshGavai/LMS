@@ -15,6 +15,11 @@ const courseData = {
         url: "https://www.bbc.co.uk/learningenglish/english/course/lower-intermediate",
       },
       {
+        title: "Learn English Grammar - BBC Learning",
+        type: "website",
+        url: "https://www.bbc.co.uk/learningenglish/english/course/lower-intermediate",
+      },
+      {
         title: "English Grammar for Beginners (Video)",
         type: "video",
         url: "https://www.youtube.com/watch?v=7LmgyjM2m8Y",
