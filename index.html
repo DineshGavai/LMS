@@ -16,10 +16,51 @@
       <nav>
         <a href="index.html" class="active">Home</a>
         <a href="courses.html">Courses</a>
+        <!-- Quiz Select Menu -->
+        <select id="quizSelect">
+          <option value="">Quiz</option>
+          <option value="English">English</option>
+          <option value="Science">Science</option>
+          <option value="Mathematics">Mathematics</option>
+        </select>
+
         <a href="announcements.html">Announcements</a>
       </nav>
+      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
     </header>
+    <main>
+      <h1>My Profile</h1>
+
+      <div class="tile profile-card">
+        <img
+          src="./images/avatar.png"
+          alt="Student Avatar"
+          class="profile-avatar"
+        />
+        <div class="profile-info">
+          <p id="profile_name">Student Name Here</p>
+          <p id="profile_email">student.email@example.com</p>
+        </div>
+
+        <button id="logout_btn">Logout</button>
+      </div>
+    </main>
 
     <footer><p>© 2025 SmartLearn LMS | Created by Students</p></footer>
+
+    <script src="./scripts/global.js" type="module"></script>
+    <script>
+      // Redirect to subject.html with selected subject as a query parameter
+      document
+        .getElementById("quizSelect")
+        .addEventListener("change", function () {
+          const subject = this.value;
+          if (subject) {
+            window.location.href = `subject.html?subject=${encodeURIComponent(
+              subject
+            )}#quiz-anchor`;
+          }
+        });
+    </script>
   </body>
 </html>

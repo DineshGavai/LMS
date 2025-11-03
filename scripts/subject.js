@@ -1,23 +1,36 @@
-// All course data
+// ------------------ Course Data ------------------
 const courseData = {
   English: {
     title: "English",
-    description: "Welcome to English! Here you'll learn about grammar, vocabulary, and writing skills. You will also read stories and poems that help you understand the beauty of language and communication. The goal is to help you speak and write English clearly and confidently.",
-    resources: [
+    description:
+      "Welcome to English! Learn grammar, vocabulary, and writing through structured chapters.",
+    chapters: [
       {
-        title: "Grammar Basics PDF",
-        type: "pdf",
-        url: "https://www.tutorialspoint.com/english_grammar/english_grammar_tutorial.pdf",
+        title: "Chapter 1: Grammar Basics",
+        description: "Learn about nouns, verbs, and sentence structure.",
+        resources: [
+          {
+            title: "Grammar Basics PDF",
+            type: "pdf",
+            url: "https://example.com/grammar.pdf",
+          },
+          {
+            title: "English Grammar Video",
+            type: "video",
+            url: "https://www.youtube.com/watch?v=7LmgyjM2m8Y",
+          },
+        ],
       },
       {
-        title: "Learn English Grammar - BBC Learning",
-        type: "website",
-        url: "https://www.bbc.co.uk/learningenglish/english/course/lower-intermediate",
-      },
-      {
-        title: "English Grammar for Beginners (Video)",
-        type: "video",
-        url: "https://www.youtube.com/watch?v=7LmgyjM2m8Y",
+        title: "Chapter 2: Vocabulary Building",
+        description: "Expand your vocabulary through practice and reading.",
+        resources: [
+          {
+            title: "Vocabulary Builder Website",
+            type: "website",
+            url: "https://www.bbc.co.uk/learningenglish",
+          },
+        ],
       },
     ],
     quiz: [
@@ -32,53 +45,9 @@ const courseData = {
         answer: 2,
       },
       {
-        question: "Identify the adjective in this sentence: 'The tall boy runs fast.'",
+        question: "Identify the adjective: 'The tall boy runs fast.'",
         options: ["boy", "runs", "tall", "fast"],
         answer: 3,
-      },
-      {
-        question: "Choose the correct plural form of 'child':",
-        options: ["childs", "childes", "children", "childrens"],
-        answer: 3,
-      },
-    ],
-  },
-
-  Mathematics: {
-    title: "Mathematics",
-    description: "Mathematics helps us understand the world through numbers, shapes, and patterns. It develops problem-solving and logical thinking skills. In this course, you’ll learn arithmetic, geometry, and basic algebra to build a strong foundation for higher studies.",
-    resources: [
-      {
-        title: "Basic Mathematics Notes (PDF)",
-        type: "pdf",
-        url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
-      },
-      {
-        title: "Khan Academy – Arithmetic and Pre-Algebra",
-        type: "website",
-        url: "https://www.khanacademy.org/math/arithmetic",
-      },
-      {
-        title: "Learn Math Fast – Simple Tricks (Video)",
-        type: "video",
-        url: "https://www.youtube.com/watch?v=3a3K0N3xAEY",
-      },
-    ],
-    quiz: [
-      {
-        question: "What is the value of (8 × 5) ÷ 2?",
-        options: ["10", "20", "25", "30"],
-        answer: 2, // 20
-      },
-      {
-        question: "If a triangle has sides 3 cm, 4 cm, and 5 cm, what type of triangle is it?",
-        options: ["Equilateral", "Isosceles", "Scalene", "Right-angled"],
-        answer: 4, // Right-angled
-      },
-      {
-        question: "Which of these fractions is equal to 1/2?",
-        options: ["2/3", "3/6", "2/5", "4/5"],
-        answer: 2, // 3/6
       },
     ],
   },
@@ -86,22 +55,34 @@ const courseData = {
   Science: {
     title: "Science",
     description:
-      "Science helps us understand how things around us work — from the air we breathe to the stars in the sky. This subject includes topics from physics, chemistry, and biology. You’ll learn through simple explanations, experiments, and real-life examples.",
-    resources: [
+      "Science helps us understand how things work — from atoms to galaxies.",
+    chapters: [
       {
-        title: "NCERT Science Class 8 Book (PDF)",
-        type: "pdf",
-        url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
+        title: "Chapter 1: Living Things",
+        description: "Discover how plants and animals live and grow.",
+        resources: [
+          {
+            title: "Life Processes (PDF)",
+            type: "pdf",
+            url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
+          },
+          {
+            title: "Photosynthesis Explained (Video)",
+            type: "video",
+            url: "https://www.youtube.com/watch?v=D1Ymc311XS8",
+          },
+        ],
       },
       {
-        title: "Science Experiments for Kids - National Geographic",
-        type: "website",
-        url: "https://kids.nationalgeographic.com/science",
-      },
-      {
-        title: "Photosynthesis Explained (Video)",
-        type: "video",
-        url: "https://www.youtube.com/watch?v=D1Ymc311XS8",
+        title: "Chapter 2: Matter and Energy",
+        description: "Explore solids, liquids, gases, and energy forms.",
+        resources: [
+          {
+            title: "Science Experiments Website",
+            type: "website",
+            url: "https://kids.nationalgeographic.com/science",
+          },
+        ],
       },
     ],
     quiz: [
@@ -111,91 +92,160 @@ const courseData = {
         answer: 3,
       },
       {
-        question: "Which part of the human body controls all other parts?",
+        question: "Which part of the human body controls all others?",
         options: ["Heart", "Brain", "Lungs", "Liver"],
         answer: 2,
       },
+    ],
+  },
+
+  Mathematics: {
+    title: "Mathematics",
+    description:
+      "Mathematics builds logical and analytical skills through problem solving.",
+    chapters: [
       {
-        question: "Water changes into vapor during which process?",
-        options: ["Condensation", "Evaporation", "Freezing", "Melting"],
+        title: "Chapter 1: Arithmetic",
+        description:
+          "Learn addition, subtraction, multiplication, and division.",
+        resources: [
+          {
+            title: "Basic Math Notes (PDF)",
+            type: "pdf",
+            url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
+          },
+          {
+            title: "Khan Academy Arithmetic",
+            type: "website",
+            url: "https://www.khanacademy.org/math/arithmetic",
+          },
+        ],
+      },
+      {
+        title: "Chapter 2: Geometry",
+        description: "Understand shapes, lines, and angles.",
+        resources: [
+          {
+            title: "Geometry Basics (Video)",
+            type: "video",
+            url: "https://www.youtube.com/watch?v=3a3K0N3xAEY",
+          },
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What is (8 × 5) ÷ 2?",
+        options: ["10", "20", "25", "30"],
         answer: 2,
+      },
+      {
+        question: "A triangle with sides 3, 4, 5 cm is:",
+        options: ["Equilateral", "Isosceles", "Scalene", "Right-angled"],
+        answer: 4,
       },
     ],
   },
 };
 
-
-// Get subject name from URL
+// ------------------ Load Subject ------------------
 const subject = new URLSearchParams(window.location.search).get("subject");
 const subjectData = courseData[subject];
 
-// If subject missing or invalid, go back
-if (!subject || !subjectData) {
-  window.location.href = "courses.html";
+if (!subjectData) {
+  document.body.innerHTML = "<h2>Invalid subject selected!</h2>";
+  throw new Error("Invalid subject");
 }
 
-// Set title and description
 document.getElementById("subject_title").textContent = subjectData.title;
-document.getElementById("subject_description").textContent = subjectData.description;
+document.getElementById("subject_description").textContent =
+  subjectData.description;
 
-// Example resource data
+// ------------------ Render Chapters ------------------
+const resourcesContainer = document.getElementById("resources");
 
-subjectData.resources.forEach((res) => {
-  const tile = document.createElement("div");
-  tile.className = "tile";
+subjectData.chapters.forEach((chapter) => {
+  const chapterDiv = document.createElement("div");
+  chapterDiv.className = "chapter";
 
-  let btnText = "";
+  const header = document.createElement("button");
+  header.className = "accordion";
+  header.textContent = chapter.title;
 
-  if (res.type === "pdf") {
-    btnText = `<i class="bi bi-file-earmark-pdf"></i> View PDF`;
-  } else if (res.type === "website") {
-    btnText = `<i class="bi bi-globe2"></i> Visit Website`;
-  } else if (res.type === "video") {
-    btnText = `<i class="bi bi-play-btn"></i> Watch Video`;
-  }
+  const content = document.createElement("div");
+  content.className = "panel";
 
-  tile.innerHTML = `
-    <p>${res.title}</p>
-    <div class="buttons">
-      <a href="${res.url}" target="_blank">
-      <button class="${res.type}">${btnText}</button>
-      </a>
-    </div>
-  `;
+  const desc = document.createElement("p");
+  desc.textContent = chapter.description;
+  content.appendChild(desc);
 
-  document.getElementById("resources").appendChild(tile);
+  // Add resources inside the chapter
+  chapter.resources.forEach((res) => {
+    const tile = document.createElement("div");
+    tile.className = "tile";
+
+    let btnText = "";
+    if (res.type === "pdf")
+      btnText = `<i class="bi bi-file-earmark-pdf"></i> View PDF`;
+    else if (res.type === "website")
+      btnText = `<i class="bi bi-globe2"></i> Visit Website`;
+    else if (res.type === "video")
+      btnText = `<i class="bi bi-play-btn"></i> Watch Video`;
+
+    tile.innerHTML = `
+      <p>${res.title}</p>
+      <div class="buttons">
+        <a href="${res.url}" target="_blank">
+          <button class="${res.type}">${btnText}</button>
+        </a>
+      </div>
+    `;
+    content.appendChild(tile);
+  });
+
+  chapterDiv.appendChild(header);
+  chapterDiv.appendChild(content);
+  resourcesContainer.appendChild(chapterDiv);
 });
 
+// ------------------ Accordion Toggle ------------------
+document.querySelectorAll(".accordion").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    if (panel.classList.contains("open")) {
+      panel.classList.remove("open");
+    } else {
+      panel.classList.add("open");
+    }
+  });
+});
 
-// Get quiz box
-subjectData.quiz?.forEach((q, index) => {
+// ------------------ Render Quiz ------------------
+const quizContainer = document.getElementById("quiz");
+
+subjectData.quiz.forEach((q, index) => {
   const questionDiv = document.createElement("div");
   questionDiv.className = "question tile";
-
-  // Set question text
   questionDiv.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
 
-  // Create options div and set options
   const optionsDiv = document.createElement("div");
   optionsDiv.className = "options";
 
   q.options.forEach((option) => {
     optionsDiv.innerHTML += `
-        <label>
-          <input
-            type="radio"
-            name="question_${index}"
-            value="${option}"
-          />
-          ${option}
-        </label><br>
-      `;
+      <label>
+        <input type="radio" name="question_${index}" value="${option}" />
+        ${option}
+      </label><br>
+    `;
   });
 
   questionDiv.appendChild(optionsDiv);
-  document.getElementById("quiz").appendChild(questionDiv);
+  quizContainer.appendChild(questionDiv);
 });
 
+// ------------------ Quiz Logic ------------------
 const form = document.querySelector("form");
 const scoreBox = document.getElementById("score");
 
@@ -203,7 +253,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let score = 0;
-
   const formData = new FormData(form);
 
   subjectData.quiz.forEach((q, index) => {
@@ -211,39 +260,20 @@ form.addEventListener("submit", (event) => {
     const correctAnswer = q.options[q.answer - 1];
     const options = form.querySelectorAll(`input[name="question_${index}"]`);
 
-    if (userAnswer === correctAnswer) {
-      score++;
-    }
+    if (userAnswer === correctAnswer) score++;
 
     options.forEach((option) => {
       const label = option.parentElement;
-
-      option.disabled = true
-
-      // Reset all styles first
+      option.disabled = true;
       label.classList.remove("correct", "wrong");
-
-      // Correct option
-      if (option.value === correctAnswer) {
-        label.classList.add("correct");
-      }
-
-      // Wrong chosen option
-      if (option.checked && option.value !== correctAnswer) {
-        label.classList.add("wrong");
-      }
+      if (option.value === correctAnswer) label.classList.add("correct");
+      else if (option.checked) label.classList.add("wrong");
     });
   });
 
-  // Show score in box
-  scoreBox.innerHTML = `Score: ${score}/${subjectData.quiz.length}`;
+  scoreBox.textContent = `Score: ${score}/${subjectData.quiz.length}`;
 
-
-  // Change the button to retake
-  const checkAnswerBtn = document.getElementById("check_answer_btn");
-  checkAnswerBtn.innerHTML = "<i class='bi bi-arrow-clockwise'></i>Retake Quiz";
-  checkAnswerBtn.onclick = () => {
-    window.location.reload();
-  };
-
+  const btn = document.getElementById("check_answer_btn");
+  btn.textContent = "Retake Quiz";
+  btn.onclick = () => window.location.reload();
 });

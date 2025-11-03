@@ -1,14 +1,3 @@
-// Render user name
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-if (loggedInUser) {
-  document.getElementById("profile_name").textContent = loggedInUser.name;
-  document.getElementById("profile_email").textContent = loggedInUser.email;
-} else {
-  // If no user is logged in, redirect to login page
-  window.location.href = "login.html";
-}
-
 // JSON For Courses (Example Data)
 const courses = [
   {
@@ -42,10 +31,4 @@ courses.forEach((course) => {
         </button>
     `;
   document.getElementById("courses").appendChild(courseTile);
-});
-
-// Log Out
-document.getElementById("logout_btn").addEventListener("click", function () {
-  localStorage.removeItem("loggedInUser");
-  window.location.href = "login.html";
 });
