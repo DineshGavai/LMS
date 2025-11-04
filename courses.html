@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Courses | SmartLearn LMS</title>
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/courses.css" />
-  </head>
 
-  <body>
-    <!-- Header -->
-    <header>
-      <!-- Logo -->
-      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-      <!-- Nav -->
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="courses.html">Courses</a>
-        <!-- Quiz Select Menu -->
-        <select id="quizSelect">
-          <option value="">Quiz</option>
-          <option value="English">English</option>
-          <option value="Science">Science</option>
-          <option value="Mathematics">Mathematics</option>
-        </select>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Courses | SmartLearn LMS</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/courses.css" />
+</head>
 
-        <a href="announcements.html">Announcements</a>
-      </nav>
-      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-    </header>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Logo -->
+    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+    <!-- Nav -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html" class="active">Courses</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="study-planner.html">Study Planner</a>
+    </nav>
+  </header>
 
-    <main>
-      <!-- <h1>My Profile</h1>
+  <main>
+    <h1>My Profile</h1>
 
     <div class="tile profile-card">
       <img src="./images/avatar.png" alt="Student Avatar" class="profile-avatar">
@@ -41,21 +34,38 @@
       </div>
 
       <button id="logout_btn">Logout</button>
-    </div> -->
+    </div>
 
-      <div>
-        <h1>My Courses</h1>
 
-        <div id="courses">
-          <!-- Course tiles will be dynamically added here -->
-        </div>
+    <div>
+      <h1>Courses</h1>
+
+      <div class="btn-box">
+
+        <select id="gradeSelect">
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+          <option value="7">Grade 7</option>
+          <option value="8" selected>Grade 8</option>
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+        </select>
       </div>
-    </main>
 
-    <footer><p>© 2025 SmartLearn LMS | Created by Students</p></footer>
+      <div id="courses">
+        <!-- Course tiles will be dynamically added here -->
+      </div>
+    </div>
 
-    <script src="./scripts/global.js" type="module"></script>
 
-    <script src="./scripts/courses.js"></script>
-  </body>
+
+  </main>
+
+  <footer>
+    <p>© 2025 SmartLearn LMS | Created by Students</p>
+  </footer>
+
+  <script src="./scripts/courses.js"></script>
+</body>
+
 </html>

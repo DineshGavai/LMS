@@ -46,14 +46,8 @@ nav a.active {
 }
 
 /* Input */
-<<<<<<< HEAD
 input,
 select {
-=======
-input[type="text"],
-input[type="email"],
-input[type="password"] {
->>>>>>> 86114c46547e3de3466f7c5e7c07358436f112bb
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
@@ -98,17 +92,11 @@ button {
   font-size: 1em;
   border-radius: 100rem;
 }
-button.text,
-button.accordion {
-  background-color: transparent;
-  color: #555;
-}
+
 button:hover {
   background-color: #555;
 }
-button.accordion:hover {
-  background-color: #f0f0f0;
-}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -145,9 +133,6 @@ p {
 }
 
 /* Profile Card */
-.tile.profile-card {
-  flex-direction: row;
-}
 .profile-card {
   display: flex;
   align-items: center;
