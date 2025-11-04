@@ -11,6 +11,9 @@
 #resources button.video {
   background-color: #e74c3c;
 }
+#quiz-anchor {
+  scroll-margin-top: 60px;
+}
 
 .question {
   border-radius: 8px;
@@ -25,7 +28,7 @@
   gap: 8px;
 }
 
-label:has(input) {
+.question .options label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -35,7 +38,7 @@ label:has(input) {
   transition: background-color 0.3s;
 }
 
- label:has(input):hover {
+.question .options label:hover {
   background-color: #f0f0f0;
 }
 
@@ -49,18 +52,18 @@ label:has(input) {
   color: red;
 }
 
-label input {
+.question input[type="radio"] {
   accent-color: #007bff;
   width: 22px;
   height: 22px;
   margin: 0;
 }
 
-label.correct input {
+.question .options label.correct input[type="radio"] {
   accent-color: green;
 }
 
-label.wrong input {
+.question .options label.wrong input[type="radio"] {
   accent-color: red;
 }
 
@@ -70,4 +73,95 @@ label.wrong input {
 
 #score {
   font-size: 20px;
+}
+
+/* -------- Accordion Style (Pinterest Inspired) -------- */
+.accordion {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion::after {
+  content: "\25BC"; /* Down arrow */
+  font-size: 0.9rem;
+  color: #777;
+  transition: transform 0.3s ease;
+}
+
+.accordion.active {
+  background: #f9f9ff;
+  border-color: #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion.active::after {
+  transform: rotate(-180deg);
+}
+
+/* Panel (Content) */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  transition: max-height 0.4s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  padding: 0 20px;
+}
+
+.panel.open {
+  max-height: 1000px; /* enough to show all content */
+  padding: 15px 20px;
+}
+
+/* Chapter Description */
+.panel p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Resource tiles inside each panel */
+.panel .tile {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel .tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons inside resources */
+.panel .buttons button {
+  background-color: #4b6bfb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.panel .buttons button:hover {
+  background-color: #3650d8;
 }

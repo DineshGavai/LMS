@@ -92,11 +92,17 @@ button {
   font-size: 1em;
   border-radius: 100rem;
 }
-
+button.text,
+button.accordion {
+  background-color: transparent;
+  color: #555;
+}
 button:hover {
   background-color: #555;
 }
-
+button.accordion:hover {
+  background-color: #f0f0f0;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -133,6 +139,9 @@ p {
 }
 
 /* Profile Card */
+.tile.profile-card {
+  flex-direction: row;
+}
 .profile-card {
   display: flex;
   align-items: center;

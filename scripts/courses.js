@@ -1,14 +1,3 @@
-// Render user name
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-if (loggedInUser) {
-  document.getElementById("profile_name").textContent = loggedInUser.name;
-  document.getElementById("profile_email").textContent = loggedInUser.email;
-} else {
-  // If no user is logged in, redirect to login page
-  window.location.href = "login.html";
-}
-
 // JSON data categorized by grade
 const coursesByGrade = {
   5: [
@@ -170,9 +159,3 @@ gradeSelect.addEventListener("change", (e) => {
 
 // Render default grade (8)
 renderCourses(8);
-
-// Log Out
-document.getElementById("logout_btn").addEventListener("click", function () {
-  localStorage.removeItem("loggedInUser");
-  window.location.href = "login.html";
-});
