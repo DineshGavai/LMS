@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | SmartLearn LMS</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/login-register.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register | SmartLearn LMS</title>
-  <link rel="stylesheet" href="./styles/main.css" />
-  <link rel="stylesheet" href="./styles/login-register.css" />
-</head>
+  <body>
+    <main class="login-register">
+      <form id="registerForm" class="tile">
+        <h1>Student Registration</h1>
+        <input type="text" id="reg-name" placeholder="Enter Name" required />
+        <input type="email" id="reg-email" placeholder="Enter Email" required />
+        <input
+          type="password"
+          id="reg-password"
+          placeholder="Create Password"
+          required
+        />
+        <button type="submit">Register</button>
+        <a href="login.html">Login here</a>
+      </form>
+    </main>
 
-<body>
-  <main class="login-register">
-    <form id="registerForm" class="tile">
-      <h1>Student Registration</h1>
-      <input type="text" id="reg-name" placeholder="Enter Name" required />
-      <input type="email" id="reg-email" placeholder="Enter Email" required />
-      <input type="password" id="reg-password" placeholder="Create Password" required />
-      <button type="submit">Register</button>
-      <a href="login.html">Login here</a>
-    </form>
-  </main>
-
-  <script src="scripts/register.js"></script>
-</body>
-
+    <script src="scripts/register.js"></script>
+  </body>
 </html>

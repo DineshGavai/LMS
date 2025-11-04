@@ -14,7 +14,7 @@ form.onsubmit = function (event) {
   }
 
   let user = JSON.parse(saved);
-  
+
   if (user.password === pass) {
     localStorage.setItem("loggedInUser", JSON.stringify(user));
 
