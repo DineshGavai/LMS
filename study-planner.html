@@ -45,14 +45,14 @@
                 <div id="courseList">
                     <!-- Courses will be loaded here using JS -->
                 </div>
-       
-                <label for="targetDate">Select Target Date:</label>
-                <input type="date" id="targetDate" />
-            </div>
 
-            <!-- Step 4: Create Schedule -->
-            <div class="btn-box">
-                <button id="createScheduleBtn">Create Schedule</button>
+                <label for="targetDate">Select Target Date:</label>
+                <input type="date" id="targetDate" value="2025-11-10" />
+
+                <!-- Step 4: Create Schedule -->
+                <div class="btn-box">
+                    <button id="createScheduleBtn">Create Schedule</button>
+                </div>
             </div>
 
             <!-- Step 5: Display Study Schedule + Progress -->
@@ -61,6 +61,49 @@
             </div>
         </div>
     </main>
+
+    <!-- Timer Box -->
+    <div id="studyTimer" class="timer minimized">
+        <div class="timer-header">
+            <div class="header-left">
+                <h4 id="timerHeaderTitle">⏱ Study Timer</h4>
+                <div class="timer-compact" id="timerCompact">
+                    <span id="miniSubject">No Subject</span>
+                    <span id="miniTimerDisplay">00:00</span>
+                </div>
+            </div>
+
+            <div class="timer-controls">
+                <!-- Minimize (when expanded) -->
+                <button id="minimizeBtn" title="Minimize"><i class="bi bi-dash"></i></button>
+
+                <!-- Mini play/pause shown in minimized state. We add its id and icon here -->
+                <button id="miniPlayPauseBtn" title="Play/Pause" style="display:none;">
+                    <i class="bi bi-play-fill"></i>
+                </button>
+
+                <!-- Maximize -->
+                <button id="maximizeBtn" title="Maximize"><i class="bi bi-arrows-fullscreen"></i></button>
+            </div>
+        </div>
+
+
+
+        <div class="timer-body" id="unifiedTimer">
+            <h4 id="timerTitle">⏱ Study Timer</h4>
+            <div id="timerSubject">No Subject Selected</div>
+            <div id="timerDisplay">00:00</div>
+            <p id="breakTask" style="display:none;">☕ Break Time! - Stretch & Hydrate</p>
+            <div id="totalTime">Total Time: --</div>
+
+            <div class="timer-buttons">
+                <button id="playPauseBtn"><i class="bi bi-play-fill"></i></button>
+                <button id="endTimerBtn">End Timer</button>
+            </div>
+        </div>
+
+    </div>
+
 
     <script src="./scripts/study-planner.js"></script>
 </body>
