@@ -11,7 +11,6 @@ body {
 }
 
 /* Header */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -30,6 +29,7 @@ header {
 
 nav {
   display: flex;
+  gap: 16px;
 }
 
 nav a {
@@ -37,6 +37,7 @@ nav a {
   color: #555;
   padding-bottom: 5px;
   margin: 0 15px;
+  text-wrap: nowrap;
 }
 
 nav a:hover {
@@ -44,6 +45,56 @@ nav a:hover {
 }
 
 nav a.active {
+  color: #000;
+  font-weight: bold;
+  border-bottom: 3px solid #000;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 15px;
+  padding-bottom: 5px;
+}
+
+.nav-btn:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Style the Quiz dropdown to match nav links */
+header select {
+  appearance: none;
+  background: none;
+  width: 60px;
+  border: none;
+  outline: none;
+  color: #555;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 8px 0 15px;
+  text-wrap: nowrap;
+  vertical-align: middle;
+  position: relative;
+  top: -8px;
+}
+
+/* Add hover effect like nav links */
+header select:hover {
+  color: #000;
+}
+
+/* Active/focus effect similar to selected nav link */
+header select:focus {
   color: #000;
   font-weight: bold;
   border-bottom: 3px solid #000;
@@ -81,7 +132,6 @@ label input {
 }
 
 /* Button */
-
 button {
   display: flex;
   align-items: center;
@@ -96,17 +146,21 @@ button {
   font-size: 1em;
   border-radius: 100rem;
 }
+
 button.text,
 button.accordion {
   background-color: transparent;
   color: #555;
 }
+
 button:hover {
   background-color: #555;
 }
+
 button.accordion:hover {
   background-color: #f0f0f0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -146,6 +200,7 @@ p {
 .tile.profile-card {
   flex-direction: row;
 }
+
 .profile-card {
   display: flex;
   align-items: center;
@@ -236,4 +291,170 @@ footer {
   background-color: #eee;
   color: #555;
   border-top: 1px solid #ccc;
+}
+
+/* Landing Content (for unauthenticated users) */
+.landing-content {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.feature {
+  flex: 1 1 200px;
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cta-buttons {
+  margin: 40px 0;
+}
+
+.cta-buttons a {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cta-buttons a:hover {
+  background-color: #0056b3;
+}
+
+/* Fixed Background Hero Section */
+.landing-bg {
+  height: 60vh;
+  background: url("../images/study.png") no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Optional dark overlay for contrast */
+.landing-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+/* Welcome Text Styling */
+.welcome-text {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  animation: fadeInHero 1.2s ease forwards;
+}
+
+/* Animation for hero text */
+@keyframes fadeInHero {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dashboard Section (Cards) */
+.dashboard {
+  min-height: 100vh;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 80px 60px;
+  position: relative;
+  z-index: 2;
+  /* Initially hidden for scroll animation */
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease-out;
+}
+
+/* When dashboard comes into view */
+.dashboard.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card Design */
+.card,
+.tile {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  border-top: 4px solid #0078d7; /* accent color */
+}
+
+.card h3,
+.tile h3 {
+  font-size: 22px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.card p,
+.tile p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.card:hover,
+.tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-top-color: #005bb5;
+}
+
+/* Hide Utility */
+.hidden {
+  display: none !important;
+}
+
+/* General Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Profile Card in Grid */
+.profile-card {
+  grid-column: 1 / -1; /* Span full width in the grid */
 }

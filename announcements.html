@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Announcements | SmartLearn LMS</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/announcement.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Announcements | SmartLearn LMS</title>
-  <link rel="stylesheet" href="./styles/main.css" />
-  <link rel="stylesheet" href="./styles/announcement.css" />
-</head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Logo -->
+      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+      <!-- Nav -->
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <!-- Quiz Select Menu -->
+        <select id="quizSelect">
+          <option value="">Quiz</option>
+          <option value="English">English</option>
+          <option value="Science">Science</option>
+          <option value="Mathematics">Mathematics</option>
+        </select>
 
-<body>
-  <!-- Header -->
-  <header>
-    <!-- Logo -->
-    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-    <!-- Nav -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="courses.html">Courses</a>
-      <a href="announcements.html" class="active">Announcements</a>
-    </nav>
-  </header>
+        <a href="study-planner.html">Study Planner</a>
+        <a href="announcements.html" class="active">Announcements</a>
+      </nav>
+      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+    </header>
 
-  <main>
-    <h1>Announcements</h1>
+    <main>
+      <h1>Announcements</h1>
 
-    <div id="announcements">
-      <!-- Announcements will be dynamically loaded here -->
-    </div>
-  </main>
+      <div id="announcements">
+        <!-- Announcements will be dynamically loaded here -->
+      </div>
+    </main>
 
-  <footer>
-    <p>© 2025 SmartLearn LMS | Created by Students</p>
-  </footer>
+    <footer>
+      <p>© 2025 SmartLearn LMS | Created by Students</p>
+    </footer>
 
-  <script src="./scripts/announcements.js"></script>
-</body>
-
+    <script src="./scripts/announcements.js"></script>
+  </body>
 </html>
