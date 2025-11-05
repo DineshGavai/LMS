@@ -3,6 +3,7 @@
 
 * {
   font-family: Arial, sans-serif;
+  transition: all 0.4s ease;
 }
 
 body {

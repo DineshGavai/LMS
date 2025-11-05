@@ -270,15 +270,8 @@ const miniSubject = document.getElementById("miniSubject");
 const timerDisplay = document.getElementById("timerDisplay");
 const totalTimeEl = document.getElementById("totalTime");
 const timerSubject = document.getElementById("timerSubject");
-// preserve existing elements (some pages may still have breakBody)
-// but we'll hide the separate break-body and show break info inside timerBody
-const breakBody = document.querySelector(".break-body");
 const timerBody = document.querySelector(".timer-body");
-const breakTimerDisplay = document.getElementById("breakTimerDisplay");
 const breakTask = document.getElementById("breakTask");
-
-// Ensure breakBody is hidden because we will show break inside timerBody
-if (breakBody) breakBody.classList.add("hidden");
 
 let timerInterval;
 let isRunning = false;
@@ -308,27 +301,14 @@ const breakActivities = [
 
 // Add small title + breakTask into timerBody for unified UI if not present
 let timerTitle = document.getElementById("timerTitle");
-if (!timerTitle) {
-  timerTitle = document.createElement("h4");
-  timerTitle.id = "timerTitle";
-  timerTitle.style.margin = "0 0 8px 0";
-  timerTitle.textContent = "⏱ Study Timer";
-  timerBody.insertBefore(timerTitle, timerBody.firstChild);
-}
 
 // Add a break task paragraph inside timerBody for unified display
 let unifiedBreakTask = document.getElementById("unifiedBreakTask");
 if (!unifiedBreakTask) {
   unifiedBreakTask = document.createElement("p");
   unifiedBreakTask.id = "unifiedBreakTask";
-  unifiedBreakTask.style.display = "none";
-  unifiedBreakTask.style.marginTop = "12px";
-  unifiedBreakTask.style.opacity = "0.9";
   timerBody.insertBefore(unifiedBreakTask, timerBody.querySelector(".timer-buttons"));
 }
-
-// Hide separate break display if exists
-if (breakTimerDisplay) breakTimerDisplay.textContent = ""; // keep but unused
 
 minimizeBtn.addEventListener("click", () => {
   timerBox.classList.add("minimized");
@@ -367,7 +347,7 @@ function buildPomodoroPlan(totalMinutes) {
   let remaining = totalMinutes;
   // support fractional minutes
   while (remaining > 0.1) {
-    const studyBlock = Math.min(25, remaining);
+    const studyBlock = Math.min(0.1, remaining);
     plan.push({ type: "study", minutes: studyBlock });
     remaining -= studyBlock;
     if (remaining > 0.1) {
@@ -415,15 +395,16 @@ function startSubjectTimer(course) {
   const studyHours = Number(hoursPerDay.toFixed(2));
   // compute number of 5-min breaks that will occur for the study blocks
   const studyMinutes = Math.round(hoursPerDay * 60);
-  totalTimeEl.textContent = `Today's Study: ${hoursPerDay.toFixed(1)} Hrs + few 5 Min breaks`;
+  totalTimeEl.innerHTML = `Today's Study:<br>${hoursPerDay.toFixed(1)} Hrs + 5 Min breaks`;
 
   // ensure the main timer UI shows study mode
-  timerTitle.textContent = "⏱ Study Timer";
+  timerTitle.textContent = "⏰ Study Timer";
   timerBody.style.background = ""; // reset any break styling
   unifiedBreakTask.style.display = "none";
 
   startPomodoroPhase();
 }
+
 function startPomodoroPhase() {
   if (currentPomodoroIndex >= pomodoroPlan.length) {
     endStudySession();
@@ -441,29 +422,12 @@ function startPomodoroPhase() {
 
   if (isBreak) {
     // --- 🟡 BREAK MODE ---
-    timerBody.style.backgroundColor = "#4a3b00";
-
-    // Subject first
-    timerSubject.style.order = "1";
-    timerSubject.style.fontSize = "1.4rem";
-    timerSubject.style.fontWeight = "600";
-    timerSubject.style.marginBottom = "6px";
-
-    // "Break Time" second
-    timerTitle.textContent = "☕ Break Time!";
-    timerTitle.style.order = "2";
-    timerTitle.style.fontSize = "1.1rem";
-    timerTitle.style.fontWeight = "700";
-    timerTitle.style.margin = "0";
+    timerBox.classList.add("break-mode"); // 👈 NEW: activate yellow tone
+    timerBody.style.backgroundColor = "transparent";
 
     // Activity third (big & bold)
     unifiedBreakTask.style.display = "block";
-    unifiedBreakTask.style.order = "3";
-    unifiedBreakTask.style.fontSize = "1.4rem";
-    unifiedBreakTask.style.fontWeight = "700";
-    unifiedBreakTask.style.margin = "10px 0";
-    unifiedBreakTask.style.color = "#ffd86b";
-    unifiedBreakTask.textContent =
+    unifiedBreakTask.innerHTML =
       breakActivities[Math.floor(Math.random() * breakActivities.length)];
 
     // Study summary fourth
@@ -481,8 +445,8 @@ function startPomodoroPhase() {
       endBreakBtn = document.createElement("button");
       endBreakBtn.id = "endBreakBtn";
       endBreakBtn.textContent = "End Break";
-      endBreakBtn.style.background = "#ffb300";
-      endBreakBtn.style.color = "#000";
+      endBreakBtn.style.background = "#1f2937";
+      endBreakBtn.style.color = "#fff";
       endBreakBtn.style.fontWeight = "600";
       endBreakBtn.style.borderRadius = "8px";
       endBreakBtn.style.padding = "10px 18px";
@@ -502,14 +466,10 @@ function startPomodoroPhase() {
     if (miniTimerDisplay) miniTimerDisplay.textContent = formatTime(durationSec);
   } else {
     // --- 🔹 STUDY MODE ---
-    timerTitle.textContent = "⏱ Study Timer";
+    timerBox.classList.remove("break-mode"); // 👈 NEW: return to blue study mode
+    timerTitle.textContent = "⏰ Study Timer";
     timerBody.style.backgroundColor = "";
     unifiedBreakTask.style.display = "none";
-
-    // Restore element order
-    timerTitle.style.order = "1";
-    timerSubject.style.order = "2";
-    totalTimeEl.style.order = "3";
 
     // Show study buttons
     playPauseBtn.style.display = "inline-block";
@@ -520,7 +480,7 @@ function startPomodoroPhase() {
     if (endBreakBtn) endBreakBtn.style.display = "none";
   }
 
-  // Start timer logic
+  // --- Start countdown ---
   if (timerInterval) clearInterval(timerInterval);
   isRunning = true;
   paused = false;
@@ -538,12 +498,13 @@ function startPomodoroPhase() {
   }, 1000);
 }
 
+
 function endStudySession() {
   isRunning = false;
   if (timerInterval) clearInterval(timerInterval);
 
   // Reset UI to default study state
-  timerTitle.textContent = "⏱ Study Timer";
+  timerTitle.textContent = "⏰ Study Timer";
   timerBody.style.backgroundColor = "";
   unifiedBreakTask.style.display = "none";
 
@@ -567,12 +528,10 @@ function togglePauseResume() {
     paused = true;
     if (timerInterval) clearInterval(timerInterval);
     remainingAtPause = currentSessionEnd - Date.now();
-    playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
     if (miniPlayPauseBtn) miniPlayPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
   } else {
     paused = false;
     currentSessionEnd = Date.now() + remainingAtPause;
-    playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
     if (miniPlayPauseBtn) miniPlayPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
     timerInterval = setInterval(() => {
       const now = Date.now();
