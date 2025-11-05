@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | SmartLearn LMS</title>
+    <title>Dashboard | SmartStudy LMS</title>
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
 
   <body>
     <!-- Header (UNCHANGED) -->
     <header>
-      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+      <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
       <nav>
         <a href="index.html" class="active">Home</a>
         <a href="courses.html">Courses</a>
@@ -27,20 +27,26 @@
 
         <div id="authButtonContainer"></div>
       </nav>
-      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+      <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
     </header>
 
     <!-- Fixed Background Hero (hidden when logged in) -->
     <section class="landing-bg" id="heroSection">
-      <h1 class="welcome-text">Welcome to SmartLearn LMS</h1>
-      <p>Your gateway to personalized learning and academic success.</p>
+      <h1 class="welcome-text">Welcome to SmartStudy LMS</h1>
+      <p>
+        Welcome to SmartStudy an innovative Learning Management System designed
+        to promote balance between academics and well-being. The platform offers
+        organized access to study materials, interactive quizzes, and wellness
+        reminders — enabling students to learn efficiently while maintaining a
+        healthy routine.
+      </p>
     </section>
 
     <!-- Landing Content (shown when not logged in) -->
     <section class="landing-content" id="landingSection">
       <h2>Empower Your Learning Journey</h2>
       <p>
-        SmartLearn LMS offers interactive courses, quizzes, study planning
+        SmartStudy LMS offers interactive courses, quizzes, study planning
         tools, and more to help you achieve your goals.
       </p>
 
@@ -66,8 +72,23 @@
         </div>
       </div>
 
-      <div class="cta-buttons">
-        <a href="login.html">Login</a>
+      <div>
+        <h1>Vision and Mission</h1>
+        <div class="tile vision-mission">
+          <p>
+            SmartStudy is inspired by the everyday challenges students face in
+            managing academics, time, and health effectively. Developed by
+            students of Modern Middle East International School (MMEIS), the
+            platform aims to provide a unified space where learners can plan
+            their studies, access essential resources, and maintain a balanced
+            routine. Our vision is to promote a holistic learning experience
+            that encourages productivity without compromising well-being.
+            Through a clean, student-friendly interface, SmartStudy integrates
+            study tools, interactive quizzes, and wellness reminders — helping
+            students stay organized, focused, and healthy as they pursue
+            academic success.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -105,14 +126,16 @@
     </main>
 
     <footer>
-      <p>© 2025 SmartLearn LMS | Created by Students</p>
+      <p>© 2025 SmartStudy LMS | Created by Students</p>
     </footer>
 
     <script src="./scripts/global.js" type="module"></script>
     <script>
       // ✅ Detect login
       const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      const authButtonContainer = document.getElementById("authButtonContainer");
+      const authButtonContainer = document.getElementById(
+        "authButtonContainer"
+      );
       const landingSection = document.getElementById("landingSection");
       const dashboardSection = document.getElementById("dashboardSection");
       const heroSection = document.getElementById("heroSection");

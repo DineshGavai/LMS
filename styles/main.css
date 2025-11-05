@@ -32,7 +32,8 @@ nav {
   gap: 16px;
 }
 
-nav a, nav select {
+nav a,
+nav select {
   text-decoration: none;
   color: #555;
   padding-bottom: 5px;
@@ -46,7 +47,8 @@ nav a:hover {
   color: #000;
 }
 
-nav a.active, nav select.active {
+nav a.active,
+nav select.active {
   color: #000;
   font-weight: bold;
   border-bottom: 3px solid #000;
@@ -371,6 +373,10 @@ footer {
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   animation: fadeInHero 1.2s ease forwards;
 }
+.landing-bg p {
+  color: #e2dfdf;
+  position: relative;
+}
 
 /* Animation for hero text */
 @keyframes fadeInHero {
@@ -424,13 +430,13 @@ footer {
   border-top: 4px solid #0078d7; /* accent color */
 }
 
-.card h3{
+.card h3 {
   font-size: 22px;
   color: #222;
   margin-bottom: 10px;
 }
 
-.card p{
+.card p {
   font-size: 14px;
   color: #555;
   line-height: 1.6;
@@ -461,4 +467,49 @@ footer {
 /* Profile Card in Grid */
 .profile-card {
   grid-column: 1 / -1; /* Span full width in the grid */
+}
+
+/* CSS */
+.vision-mission {
+  /* layout */
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 20px;
+  border-radius: 12px;
+
+  /* translucent background (keeps children opaque) */
+  background-color: rgba(255, 255, 255, 0.55); /* white, 55% opacity */
+  /* for dark backgrounds use: rgba(0,0,0,0.45) */
+
+  /* subtle border and depth */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+  /* blur the background behind the element (glass effect) */
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%); /* Safari */
+
+  /* ensure good text contrast */
+  color: #111; /* use #fff on dark translucent bg */
+
+  /* smooth transition for hover/animation */
+  transition: background-color 200ms ease, transform 200ms ease;
+
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* responsive padding */
+@media (max-width: 480px) {
+  .vision-mission {
+    padding: 14px;
+    border-radius: 10px;
+  }
+}
+
+/* If you want dark variant */
+.vision-mission.dark {
+  background-color: rgba(17, 24, 39, 0.55); /* near-black translucent */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #f7f7f7;
 }
