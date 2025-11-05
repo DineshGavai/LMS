@@ -18,7 +18,7 @@ form.onsubmit = function (event) {
   if (user.password === pass) {
     localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    window.location.href = "/index.html";
+    window.location.href = "index.html";
   } else {
     alert("Wrong password!");
   }
