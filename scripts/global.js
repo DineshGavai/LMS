@@ -10,6 +10,7 @@ if (loggedInUser) {
   if (profileEmail) profileEmail.textContent = loggedInUser.email;
 } else {
   // If no user is logged in, redirect to login page
+  if (!/index\.html|login\.html|register\.html/.test(window.location.href))
   window.location.href = "index.html";
 }
 

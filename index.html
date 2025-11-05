@@ -123,7 +123,7 @@
         // Hide hero and landing, show dashboard
         heroSection.style.display = "none";
         landingSection.style.display = "none";
-        dashboardSection.style.display = "block";
+        dashboardSection.classList.add("show");
 
         // Populate profile card
         profileName.textContent = loggedUser.name || "User Name";
@@ -142,7 +142,7 @@
         // Show hero and landing, hide dashboard
         heroSection.style.display = "block";
         landingSection.style.display = "block";
-        dashboardSection.style.display = "none";
+        dashboardSection.classList.remove("show");
         authButtonContainer.innerHTML = `<a href="login.html" class="nav-btn">Login</a>`;
       }
     </script>

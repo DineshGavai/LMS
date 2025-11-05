@@ -388,7 +388,7 @@ footer {
 .dashboard {
   min-height: 100vh;
   background-color: transparent;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
   padding: 80px 60px;
@@ -402,8 +402,14 @@ footer {
 
 /* When dashboard comes into view */
 .dashboard.show {
+  display: grid;
   opacity: 1;
   transform: translateY(0);
+}
+
+.dashboard .tile:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Card Design */
