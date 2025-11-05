@@ -1,9 +1,13 @@
 // Render user name
 export const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
+let profileName = document.getElementById("profile_name");
+let profileEmail = document.getElementById("profile_email");
+
 if (loggedInUser) {
-  document.getElementById("profile_name").textContent = loggedInUser.name;
-  document.getElementById("profile_email").textContent = loggedInUser.email;
+
+  if (profileName) profileName.textContent = loggedInUser.name;
+  if (profileEmail) profileEmail.textContent = loggedInUser.email;
 } else {
   // If no user is logged in, redirect to login page
   window.location.href = "index.html";

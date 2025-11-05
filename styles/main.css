@@ -32,19 +32,21 @@ nav {
   gap: 16px;
 }
 
-nav a {
+nav a, nav select {
   text-decoration: none;
   color: #555;
   padding-bottom: 5px;
   margin: 0 15px;
   text-wrap: nowrap;
+  text-align: center;
+  border-radius: 0;
 }
 
 nav a:hover {
   color: #000;
 }
 
-nav a.active {
+nav a.active, nav select.active {
   color: #000;
   font-weight: bold;
   border-bottom: 3px solid #000;
@@ -405,8 +407,7 @@ footer {
 }
 
 /* Card Design */
-.card,
-.tile {
+.card {
   background: #ffffff;
   border-radius: 18px;
   padding: 30px 25px;
@@ -417,22 +418,19 @@ footer {
   border-top: 4px solid #0078d7; /* accent color */
 }
 
-.card h3,
-.tile h3 {
+.card h3{
   font-size: 22px;
   color: #222;
   margin-bottom: 10px;
 }
 
-.card p,
-.tile p {
+.card p{
   font-size: 14px;
   color: #555;
   line-height: 1.6;
 }
 
-.card:hover,
-.tile:hover {
+.card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border-top-color: #005bb5;

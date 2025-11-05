@@ -1,78 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Science</title>
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/subject.css" />
-  </head>
 
-  <body>
-    <!-- Header -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Science</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/subject.css" />
+</head>
+
+<body>
+    <!-- Header (UNCHANGED) -->
     <header>
-      <!-- Logo -->
       <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-      <!-- Nav -->
       <nav>
         <a href="index.html">Home</a>
-        <a href="courses.html" class="active">Courses</a>
-        <!-- Quiz Select Menu -->
-        <select id="quizSelect">
+        <a href="courses.html">Courses</a>
+
+        <select id="quizSelect" class="active">
           <option value="">Quiz</option>
           <option value="English">English</option>
           <option value="Science">Science</option>
           <option value="Mathematics">Mathematics</option>
         </select>
 
-        <a href="announcements.html">Announcements</a>
+        <a href="study-planner.html" id="studyLink">Study Planner</a>
+        <a href="announcements.html" id="announcementLink">Announcements</a>
+
+        <div id="authButtonContainer"></div>
       </nav>
       <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
     </header>
 
-    <!-- Main -->
-    <main>
-      <h1 id="subject_title"></h1>
-      <p id="subject_description"></p>
+  <!-- Main -->
+  <main>
+    <h1 id="subject_title"></h1>
+    <p id="subject_description"></p>
 
-      <div id="resources">
-        <h2>Resources</h2>
+    <div id="resources">
+      <h2>Resources</h2>
+    </div>
+
+    <!-- Hidden quiz anchor -->
+    <div id="quiz-anchor"></div>
+
+    <form>
+      <h2>Quiz</h2>
+      <div id="quiz"></div>
+
+      <div class="btn-box">
+        <p id="score"></p>
+        <button id="check_answer_btn">Check Answer</button>
       </div>
+    </form>
+  </main>
 
-      <!-- Hidden quiz anchor -->
-      <div id="quiz-anchor"></div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 SmartLearn LMS | Created by Students</p>
+  </footer>
 
-      <form>
-        <h2>Quiz</h2>
-        <div id="quiz"></div>
+  <!-- Scripts -->
+  <script src="./scripts/global.js" type="module"></script>
+  <script src="./scripts/subject.js"></script>
+</body>
 
-        <div class="btn-box">
-          <p id="score"></p>
-          <button id="check_answer_btn">Check Answer</button>
-        </div>
-      </form>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 SmartLearn LMS | Created by Students</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="./scripts/subject.js"></script>
-
-    <script>
-      // Redirect to subject.html with selected subject
-      document
-        .getElementById("quizSelect")
-        .addEventListener("change", function () {
-          const subject = this.value;
-          if (subject) {
-            window.location.href = `subject.html?subject=${encodeURIComponent(
-              subject
-            )}#quiz-anchor`;
-          }
-        });
-    </script>
-  </body>
 </html>

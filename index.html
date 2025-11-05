@@ -108,10 +108,11 @@
       <p>© 2025 SmartLearn LMS | Created by Students</p>
     </footer>
 
+    <script src="./scripts/global.js" type="module"></script>
     <script>
       // ✅ Detect login
       const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      const authContainer = document.getElementById("authButtonContainer");
+      const authButtonContainer = document.getElementById("authButtonContainer");
       const landingSection = document.getElementById("landingSection");
       const dashboardSection = document.getElementById("dashboardSection");
       const heroSection = document.getElementById("heroSection");
@@ -128,7 +129,7 @@
         profileName.textContent = loggedUser.name || "User Name";
         profileEmail.textContent = loggedUser.email || "user@example.com";
 
-        authContainer.innerHTML = `
+        authButtonContainer.innerHTML = `
           <button id="navLogoutBtn" class="nav-btn">Logout</button>
         `;
         document
@@ -142,7 +143,7 @@
         heroSection.style.display = "block";
         landingSection.style.display = "block";
         dashboardSection.style.display = "none";
-        authContainer.innerHTML = `<a href="login.html" class="nav-btn">Login</a>`;
+        authButtonContainer.innerHTML = `<a href="login.html" class="nav-btn">Login</a>`;
       }
     </script>
   </body>
