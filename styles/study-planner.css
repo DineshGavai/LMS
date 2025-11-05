@@ -1,0 +1,423 @@
+/* --- Course List UI --- */
+#courseList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Course container */
+.course-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.course-item:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Checkbox alignment */
+.course-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.course-label input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: #007bff;
+  flex-shrink: 0;
+}
+
+/* Text content */
+.course-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.course-info {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* When selected */
+.course-label input[type="checkbox"]:checked + .course-content .course-title {
+  color: #007bff;
+}
+
+.course-label input[type="checkbox"]:checked + .course-content .course-info {
+  color: #007bff;
+  opacity: 0.9;
+}
+
+#targetDate {
+  font-size: 24px;
+}
+
+#createScheduleBtn {
+  margin-left: auto;
+}
+
+.study-card {
+  border: 2px solid #eee;
+  padding: 16px;
+  transition: 0.3s;
+}
+.study-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.study-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deadline {
+  background-color: #eef3ff;
+  color: #007bff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* --- Chapters --- */
+.chapter-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+}
+
+.chapter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chapter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.chapter-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #fff;
+  color: #555;
+  transition: all 0.25s ease;
+}
+.chapter-circle.done {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+.chapter-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-height: 28px;
+}
+
+.chapter-controls button {
+  min-width: 28px;
+  min-height: 28px;
+  width: 0;
+  aspect-ratio: 1;
+  font-size: 22px;
+}
+
+.progress-small {
+  font-size: 28px;
+}
+
+/* --- Routine --- */
+.routine {
+  border-top: 1px solid #eee;
+  margin-top: 12px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.routine > div:first-of-type {
+  flex: 1;
+  justify-content: space-between;
+}
+
+.routine .top,
+.routine .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.routine .top p {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+.routine .top .remain {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #777;
+  font-weight: normal;
+}
+.routine .bottom h4 {
+  margin: 6px 0 0;
+  font-size: 24px;
+  color: #000;
+}
+
+.routine .bottom h5 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* --- TIMER BOX --- */
+#studyTimer {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+/* Minimized Mode */
+#studyTimer.minimized {
+  max-width: fit-content;
+  max-height: 60px;
+}
+
+#studyTimer.minimized #timerTitle {
+  display: none;
+}
+
+#studyTimer.minimized #maximizeBtn {
+  display: block;
+}
+
+/* Expanded Mode */
+#studyTimer.expanded {
+  max-width: 600px;
+  max-height: 80vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.timer-controls button {
+  background: none;
+  color: #fff;
+  font-size: 22px;
+  padding: 6px;
+}
+
+.timer-body {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#timerSubject {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.timer-body .circle {
+  width: fit-content;
+  aspect-ratio: 1;
+  padding: 40px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#timerDisplay {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 8px 0;
+  color: #007bff;
+}
+
+#studyTimer.break-mode .timer-body .circle {
+  border-color: #28a745;
+}
+#studyTimer.break-mode #timerDisplay {
+  color: #28a745;
+}
+
+#totalTime {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #ccc;
+}
+
+#unifiedBreakTask {
+  font-size: 28px;
+  width: fit-content;
+  margin: 12px auto;
+  color: #ddd;
+  background-color: #28a74638;
+  padding: 16px;
+  border-radius: 100px;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.timer-buttons button {
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.timer-buttons button:hover {
+  background-color: #555;
+}
+
+/* --- Start Timer Button --- */
+.timer-btn-box {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* --- MINIMIZED (compact) --- */
+#studyTimer.minimized {
+  width: 220px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+}
+
+#studyTimer.minimized h4 {
+  display: none;
+}
+
+/* show only header in minimized mode */
+#studyTimer.minimized .timer-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#studyTimer.minimized .timer-body {
+  display: none;
+}
+
+/* Compact subject + mini timer */
+.timer-compact {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* subject in compact line (shorter) */
+#miniSubject {
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* mini timer number */
+#miniTimerDisplay {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* show mini play/pause in minimized mode, hide minimize button */
+#studyTimer.minimized #miniPlayPauseBtn {
+  display: inline-flex;
+}
+#studyTimer.minimized #minimizeBtn {
+  display: none;
+}
+
+/* when expanded, hide mini play button (we keep main one) */
+#studyTimer.expanded #miniPlayPauseBtn {
+  display: none;
+}
+
+/* Hide compact mini timer elements when expanded */
+#studyTimer.expanded .timer-compact,
+#studyTimer.expanded #miniPlayPauseBtn,
+#studyTimer.expanded #miniSubject,
+#studyTimer.expanded #miniTimerDisplay {
+  display: none !important;
+}
+
+#studyTimer.expanded #maximizeBtn {
+  display: none;
+}
+
+/* Show them only in minimized mode */
+#studyTimer.minimized .timer-compact,
+#studyTimer.minimized #miniPlayPauseBtn {
+  display: flex !important;
+  align-items: center;
+}

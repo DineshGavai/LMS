@@ -1,75 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | SmartLearn LMS</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Courses | SmartLearn LMS</title>
-  <link rel="stylesheet" href="./styles/main.css" />
-</head>
+  <body>
+    <!-- Header (UNCHANGED) -->
+    <header>
+      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="courses.html">Courses</a>
 
-<body>
-  <!-- Header -->
-  <header>
-    <!-- Logo -->
-    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-    <!-- Nav -->
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="courses.html">Courses</a>
-      <!-- Quiz Select Menu -->
-      <select id="quizSelect">
-        <option value="">Quiz</option>
-        <option value="English">English</option>
-        <option value="Science">Science</option>
-        <option value="Mathematics">Mathematics</option>
-      </select>
+        <select id="quizSelect">
+          <option value="">Quiz</option>
+          <option value="English">English</option>
+          <option value="Science">Science</option>
+          <option value="Mathematics">Mathematics</option>
+        </select>
 
-      <a href="announcements.html">Announcements</a>
-    </nav>
-    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
-  </header>
-  <main>
-    <h1>My Profile</h1>
+        <a href="study-planner.html" id="studyLink">Study Planner</a>
+        <a href="announcements.html" id="announcementLink">Announcements</a>
 
-    <div class="tile profile-card">
-      <img src="./images/avatar.png" alt="Student Avatar" class="profile-avatar" />
-      <div class="profile-info">
-        <p id="profile_name">Student Name Here</p>
-        <p id="profile_email">student.email@example.com</p>
+        <div id="authButtonContainer"></div>
+      </nav>
+      <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+    </header>
+
+    <!-- Fixed Background Hero (hidden when logged in) -->
+    <section class="landing-bg" id="heroSection">
+      <h1 class="welcome-text">Welcome to SmartLearn LMS</h1>
+      <p>Your gateway to personalized learning and academic success.</p>
+    </section>
+
+    <!-- Landing Content (shown when not logged in) -->
+    <section class="landing-content" id="landingSection">
+      <h2>Empower Your Learning Journey</h2>
+      <p>
+        SmartLearn LMS offers interactive courses, quizzes, study planning
+        tools, and more to help you achieve your goals.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <h3>Comprehensive Courses</h3>
+          <p>Access a wide range of subjects with expert-designed materials.</p>
+        </div>
+        <div class="feature">
+          <h3>Interactive Quizzes</h3>
+          <p>
+            Test your knowledge with subject-specific quizzes and track
+            progress.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Study Planner</h3>
+          <p>Organize your schedule and stay on top of your studies.</p>
+        </div>
+        <div class="feature">
+          <h3>Announcements</h3>
+          <p>Stay informed with the latest updates and notifications.</p>
+        </div>
       </div>
 
-      <button id="logout_btn">Logout</button>
-    </div>
-  </main>
+      <div class="cta-buttons">
+        <a href="login.html">Login</a>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 SmartLearn LMS | Created by Students</p>
-  </footer>
+    <!-- Dashboard Cards (shown when logged in) -->
+    <main class="dashboard" id="dashboardSection">
+      <!-- Profile Card -->
+      <div class="tile profile-card" id="profileCard">
+        <!-- <img src="./images/default-avatar.png" alt="Profile Picture" /> -->
+        <div>
+          <h1 id="profile_name">User Name</h1>
+          <p id="profile_email">user@example.com</p>
+        </div>
+        <button onclick="location.href='profile.html'">Edit Profile</button>
+      </div>
 
-  <script src="./scripts/global.js" type="module"></script>
-  <script>
+      <div class="tile" onclick="location.href='courses.html'">
+        <h3>Courses</h3>
+        <p>Access all your enrolled courses and learning materials.</p>
+      </div>
 
+      <div class="tile" onclick="location.href='quiz.html'">
+        <h3>Quizzes</h3>
+        <p>Challenge yourself with interactive subject-wise quizzes.</p>
+      </div>
 
-    // Log Out
-    document.getElementById("logout_btn").addEventListener("click", function () {
-      localStorage.removeItem("loggedInUser");
-      window.location.href = "login.html";
-    });
+      <div class="tile" onclick="location.href='study-planner.html'">
+        <h3>Study Planner</h3>
+        <p>Plan your study schedule and track your daily progress.</p>
+      </div>
 
+      <div class="tile" onclick="location.href='announcements.html'">
+        <h3>Announcements</h3>
+        <p>Stay updated with the latest notifications and academic news.</p>
+      </div>
+    </main>
 
-    // Redirect to subject.html with selected subject as a query parameter
-    document
-      .getElementById("quizSelect")
-      .addEventListener("change", function () {
-        const subject = this.value;
-        if (subject) {
-          window.location.href = `subject.html?subject=${encodeURIComponent(
-            subject
-          )}#quiz-anchor`;
-        }
-      });
-  </script>
-</body>
+    <footer>
+      <p>© 2025 SmartLearn LMS | Created by Students</p>
+    </footer>
 
+    <script src="./scripts/global.js" type="module"></script>
+    <script>
+      // ✅ Detect login
+      const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      const authButtonContainer = document.getElementById("authButtonContainer");
+      const landingSection = document.getElementById("landingSection");
+      const dashboardSection = document.getElementById("dashboardSection");
+      const heroSection = document.getElementById("heroSection");
+      const profileName = document.getElementById("profile_name");
+      const profileEmail = document.getElementById("profile_email");
+
+      if (loggedUser) {
+        // Hide hero and landing, show dashboard
+        heroSection.style.display = "none";
+        landingSection.style.display = "none";
+        dashboardSection.style.display = "block";
+
+        // Populate profile card
+        profileName.textContent = loggedUser.name || "User Name";
+        profileEmail.textContent = loggedUser.email || "user@example.com";
+
+        authButtonContainer.innerHTML = `
+          <button id="navLogoutBtn" class="nav-btn">Logout</button>
+        `;
+        document
+          .getElementById("navLogoutBtn")
+          .addEventListener("click", () => {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "login.html";
+          });
+      } else {
+        // Show hero and landing, hide dashboard
+        heroSection.style.display = "block";
+        landingSection.style.display = "block";
+        dashboardSection.style.display = "none";
+        authButtonContainer.innerHTML = `<a href="login.html" class="nav-btn">Login</a>`;
+      }
+    </script>
+  </body>
 </html>
