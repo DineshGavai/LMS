@@ -14,11 +14,11 @@ form.onsubmit = function (event) {
   }
 
   let user = JSON.parse(saved);
-  
+
   if (user.password === pass) {
     localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-    window.location.href = "/courses.html";
+    window.location.href = "/index.html";
   } else {
     alert("Wrong password!");
   }
