@@ -349,6 +349,7 @@ footer {
   align-items: center;
   text-align: center;
   overflow: hidden;
+  padding-top: 5%;
 }
 
 /* Optional dark overlay for contrast */
@@ -376,6 +377,8 @@ footer {
 .landing-bg p {
   color: #e2dfdf;
   position: relative;
+  max-width: 600px;
+  margin: auto;
 }
 
 /* Animation for hero text */

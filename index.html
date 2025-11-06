@@ -131,11 +131,7 @@
 
     <script src="./scripts/global.js" type="module"></script>
     <script>
-      // ✅ Detect login
       const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      const authButtonContainer = document.getElementById(
-        "authButtonContainer"
-      );
       const landingSection = document.getElementById("landingSection");
       const dashboardSection = document.getElementById("dashboardSection");
       const heroSection = document.getElementById("heroSection");
@@ -148,25 +144,13 @@
         landingSection.style.display = "none";
         dashboardSection.classList.add("show");
 
-        // Populate profile card
         profileName.textContent = loggedUser.name || "User Name";
         profileEmail.textContent = loggedUser.email || "user@example.com";
-
-        authButtonContainer.innerHTML = `
-          <button id="navLogoutBtn" class="nav-btn">Logout</button>
-        `;
-        document
-          .getElementById("navLogoutBtn")
-          .addEventListener("click", () => {
-            localStorage.removeItem("loggedInUser");
-            window.location.href = "login.html";
-          });
       } else {
         // Show hero and landing, hide dashboard
         heroSection.style.display = "block";
         landingSection.style.display = "block";
         dashboardSection.classList.remove("show");
-        authButtonContainer.innerHTML = `<a href="login.html" class="nav-btn">Login</a>`;
       }
     </script>
   </body>
