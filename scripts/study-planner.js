@@ -1,50 +1,5 @@
-// --- STEP 1: Course data ---
-const studyData = {
-  5: [
-    { title: "English", chapters: 6, hoursPerChapter: 1.5 },
-    { title: "Mathematics", chapters: 8, hoursPerChapter: 1.5 },
-    { title: "Science", chapters: 5, hoursPerChapter: 2 },
-    { title: "Social Studies", chapters: 4, hoursPerChapter: 1.5 },
-  ],
+import { coursesData } from "./global.js";
 
-  6: [
-    { title: "English", chapters: 7, hoursPerChapter: 1.5 },
-    { title: "Mathematics", chapters: 9, hoursPerChapter: 1.5 },
-    { title: "Science", chapters: 6, hoursPerChapter: 2 },
-    { title: "Geography", chapters: 5, hoursPerChapter: 1.5 },
-  ],
-
-  7: [
-    { title: "English", chapters: 8, hoursPerChapter: 1.5 },
-    { title: "Mathematics", chapters: 9, hoursPerChapter: 1.5 },
-    { title: "Science", chapters: 7, hoursPerChapter: 2 },
-    { title: "History", chapters: 6, hoursPerChapter: 1.5 },
-  ],
-
-  8: [
-    { title: "English", chapters: 8, hoursPerChapter: 2 },
-    { title: "Mathematics", chapters: 10, hoursPerChapter: 1.5 },
-    { title: "Science", chapters: 6, hoursPerChapter: 2.5 },
-    { title: "Civics", chapters: 5, hoursPerChapter: 1.5 },
-  ],
-
-  9: [
-    { title: "English", chapters: 10, hoursPerChapter: 2 },
-    { title: "Mathematics", chapters: 12, hoursPerChapter: 2 },
-    { title: "Physics", chapters: 6, hoursPerChapter: 2.5 },
-    { title: "Chemistry", chapters: 5, hoursPerChapter: 2.5 },
-    { title: "Biology", chapters: 5, hoursPerChapter: 2 },
-  ],
-
-  10: [
-    { title: "English", chapters: 10, hoursPerChapter: 2 },
-    { title: "Mathematics", chapters: 13, hoursPerChapter: 2 },
-    { title: "Physics", chapters: 7, hoursPerChapter: 2.5 },
-    { title: "Chemistry", chapters: 6, hoursPerChapter: 2.5 },
-    { title: "Biology", chapters: 6, hoursPerChapter: 2 },
-    { title: "History & Civics", chapters: 8, hoursPerChapter: 1.5 },
-  ],
-};
 
 // --- STEP 2: Get elements ---
 const gradeSelect = document.getElementById("gradeSelect");
@@ -93,18 +48,18 @@ function loadPlannerData() {
 function loadCourses(grade) {
   courseList.innerHTML = "";
 
-  const courses = studyData[grade] || studyData[8];
+  const courses = coursesData[grade] || coursesData[8];
 
   courses.forEach((course, index) => {
     const div = document.createElement("div");
     div.className = "course-item";
     div.innerHTML = `
       <label class="course-label">
-        <input type="checkbox" value="${course.title}" data-index="${index}" checked />
+        <input type="checkbox" value="${course.title}" data-index="${index}" />
         <div class="course-content">
           <div class="course-title">${course.title}</div>
           <div class="course-info">
-            <span>${course.chapters} chapters</span> • 
+            <span>${course.chapters.length} chapters</span> • 
             <span>${course.hoursPerChapter} Hrs each</span>
           </div>
         </div>
@@ -120,7 +75,7 @@ gradeSelect.addEventListener("change", (e) => loadCourses(e.target.value));
 // --- STEP 4: Create Schedule ---
 createBtn.addEventListener("click", () => {
   const selectedGrade = gradeSelect.value;
-  const courses = studyData[selectedGrade] || studyData[8];
+  const courses = coursesData[selectedGrade] || coursesData[8];
   const selectedCourses = [];
 
   const checkboxes = courseList.querySelectorAll("input[type='checkbox']");
@@ -143,7 +98,7 @@ createBtn.addEventListener("click", () => {
 
   selectedCourses.forEach((course) => {
     let completed = 0;
-    const totalHours = course.chapters * course.hoursPerChapter;
+    const totalHours = course.chapters.length * course.hoursPerChapter;
     const hoursPerDay = (totalHours / daysLeft).toFixed(1);
 
     const card = document.createElement("div");
@@ -167,7 +122,7 @@ createBtn.addEventListener("click", () => {
 
     const chapterContainer = document.createElement("div");
     chapterContainer.className = "chapter-container";
-    for (let i = 1; i <= course.chapters; i++) {
+    for (let i = 1; i <= course.chapters.length; i++) {
       const circle = document.createElement("div");
       circle.className = "chapter-circle";
       circle.textContent = i;
@@ -182,7 +137,7 @@ createBtn.addEventListener("click", () => {
     addBtn.innerHTML = `<i class="bi bi-plus"></i>`;
     const progressText = document.createElement("span");
     progressText.className = "progress-small";
-    progressText.textContent = `0/${course.chapters}`;
+    progressText.textContent = `0/${course.chapters.length}`;
     controlBox.append(removeBtn, progressText, addBtn);
 
     chapterRow.append(chapterContainer, controlBox);
@@ -193,7 +148,7 @@ createBtn.addEventListener("click", () => {
     routine.innerHTML = `
     <div>
       <div class="top">
-        <p>${course.chapters} chapters × ${course.hoursPerChapter} Hrs each</p>
+        <p>${course.chapters.length} chapters × ${course.hoursPerChapter} Hrs each</p>
         <p class="remain">${totalHours.toFixed(1)} Hrs remaining</p>
       </div>
       <div class="bottom">
@@ -232,13 +187,13 @@ createBtn.addEventListener("click", () => {
       const circles = chapterContainer.querySelectorAll(".chapter-circle");
       circles.forEach((c, i) => c.classList.toggle("done", i < completed));
       const remainingHours = (totalHours - completed * course.hoursPerChapter).toFixed(1);
-      progressText.textContent = `${completed}/${course.chapters}`;
+      progressText.textContent = `${completed}/${course.chapters.length}`;
       routine.querySelector(".remain").textContent = `${remainingHours} Hrs remaining`;
       savePlannerData();
     };
 
     addBtn.addEventListener("click", () => {
-      if (completed < course.chapters) {
+      if (completed < course.chapters.length) {
         completed++;
         updateProgress();
       }
@@ -369,7 +324,7 @@ function startSubjectTimer(course) {
   const getHrsPerChapter = (hp) =>
     typeof hp === "object" ? (hp.hrs || 0) + ((hp.min || 0) / 60) : Number(hp || 0);
 
-  const totalHours = getHrsPerChapter(course.hoursPerChapter) * course.chapters;
+  const totalHours = getHrsPerChapter(course.hoursPerChapter) * course.chapters.length;
 
   const targetDateVal = document.getElementById("targetDate").value;
   const targetDate = targetDateVal ? new Date(targetDateVal) : new Date();
@@ -611,7 +566,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const courseTitle = card.querySelector(".study-header h3")?.textContent;
         // find meta from studyData based on current grade
         const grade = gradeSelect.value || "8";
-        const meta = (studyData[grade] || studyData[8]).find((x) => x.title === courseTitle);
+        const meta = (coursesData[grade] || coursesData[8]).find((x) => x.title === courseTitle);
         let courseHoursPerChapter = 1.5;
         if (meta) {
           if (typeof meta.hoursPerChapter === "object") {

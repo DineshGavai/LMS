@@ -31,7 +31,7 @@
 .course-label input[type="checkbox"] {
   width: 22px;
   height: 22px;
-  accent-color: #007bff;
+  accent-color: var(--clr-accent);
   flex-shrink: 0;
 }
 
@@ -56,11 +56,11 @@
 
 /* When selected */
 .course-label input[type="checkbox"]:checked + .course-content .course-title {
-  color: #007bff;
+  color: var(--clr-accent);
 }
 
 .course-label input[type="checkbox"]:checked + .course-content .course-info {
-  color: #007bff;
+  color: var(--clr-accent);
   opacity: 0.9;
 }
 

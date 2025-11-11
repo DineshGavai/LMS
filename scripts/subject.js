@@ -1,156 +1,14 @@
-// ------------------ Course Data ------------------
-const courseData = {
-  English: {
-    title: "English",
-    description:
-      "Welcome to English! Learn grammar, vocabulary, and writing through structured chapters.",
-    chapters: [
-      {
-        title: "Chapter 1: Grammar Basics",
-        description: "Learn about nouns, verbs, and sentence structure.",
-        resources: [
-          {
-            title: "Grammar Basics PDF",
-            type: "pdf",
-            url: "https://example.com/grammar.pdf",
-          },
-          {
-            title: "English Grammar Video",
-            type: "video",
-            url: "https://www.youtube.com/watch?v=7LmgyjM2m8Y",
-          },
-        ],
-      },
-      {
-        title: "Chapter 2: Vocabulary Building",
-        description: "Expand your vocabulary through practice and reading.",
-        resources: [
-          {
-            title: "Vocabulary Builder Website",
-            type: "website",
-            url: "https://www.bbc.co.uk/learningenglish",
-          },
-        ],
-      },
-    ],
-    quiz: [
-      {
-        question: "Which sentence uses the correct article?",
-        options: [
-          "I saw a elephant in the zoo.",
-          "I saw an elephant in the zoo.",
-          "I saw the elephant in zoo.",
-          "I saw elephant in zoo.",
-        ],
-        answer: 2,
-      },
-      {
-        question: "Identify the adjective: 'The tall boy runs fast.'",
-        options: ["boy", "runs", "tall", "fast"],
-        answer: 3,
-      },
-    ],
-  },
-
-  Science: {
-    title: "Science",
-    description:
-      "Science helps us understand how things work — from atoms to galaxies.",
-    chapters: [
-      {
-        title: "Chapter 1: Living Things",
-        description: "Discover how plants and animals live and grow.",
-        resources: [
-          {
-            title: "Life Processes (PDF)",
-            type: "pdf",
-            url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
-          },
-          {
-            title: "Photosynthesis Explained (Video)",
-            type: "video",
-            url: "https://www.youtube.com/watch?v=D1Ymc311XS8",
-          },
-        ],
-      },
-      {
-        title: "Chapter 2: Matter and Energy",
-        description: "Explore solids, liquids, gases, and energy forms.",
-        resources: [
-          {
-            title: "Science Experiments Website",
-            type: "website",
-            url: "https://kids.nationalgeographic.com/science",
-          },
-        ],
-      },
-    ],
-    quiz: [
-      {
-        question: "Which gas do plants use during photosynthesis?",
-        options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-        answer: 3,
-      },
-      {
-        question: "Which part of the human body controls all others?",
-        options: ["Heart", "Brain", "Lungs", "Liver"],
-        answer: 2,
-      },
-    ],
-  },
-
-  Mathematics: {
-    title: "Mathematics",
-    description:
-      "Mathematics builds logical and analytical skills through problem solving.",
-    chapters: [
-      {
-        title: "Chapter 1: Arithmetic",
-        description:
-          "Learn addition, subtraction, multiplication, and division.",
-        resources: [
-          {
-            title: "Basic Math Notes (PDF)",
-            type: "pdf",
-            url: "https://ncert.nic.in/textbook/pdf/hesc101.pdf",
-          },
-          {
-            title: "Khan Academy Arithmetic",
-            type: "website",
-            url: "https://www.khanacademy.org/math/arithmetic",
-          },
-        ],
-      },
-      {
-        title: "Chapter 2: Geometry",
-        description: "Understand shapes, lines, and angles.",
-        resources: [
-          {
-            title: "Geometry Basics (Video)",
-            type: "video",
-            url: "https://www.youtube.com/watch?v=3a3K0N3xAEY",
-          },
-        ],
-      },
-    ],
-    quiz: [
-      {
-        question: "What is (8 × 5) ÷ 2?",
-        options: ["10", "20", "25", "30"],
-        answer: 2,
-      },
-      {
-        question: "A triangle with sides 3, 4, 5 cm is:",
-        options: ["Equilateral", "Isosceles", "Scalene", "Right-angled"],
-        answer: 4,
-      },
-    ],
-  },
-};
+import { coursesData } from "./global.js";
 
 // ------------------ Load Subject ------------------
-const subject = new URLSearchParams(window.location.search).get("subject");
-const subjectData = courseData[subject];
+const urlParams = new URLSearchParams(window.location.search);
+const grade = urlParams.get("grade");
+const subject = urlParams.get("subject");
+
+const subjectData = coursesData[grade].find((sub => sub.subject === subject));
+
+console.log(subjectData);
+
 
 if (!subjectData) {
   document.body.innerHTML = "<h2>Invalid subject selected!</h2>";
@@ -164,13 +22,13 @@ document.getElementById("subject_description").textContent =
 // ------------------ Render Chapters ------------------
 const resourcesContainer = document.getElementById("resources");
 
-subjectData.chapters.forEach((chapter) => {
+subjectData.chapters.forEach((chapter, i) => {
   const chapterDiv = document.createElement("div");
   chapterDiv.className = "chapter";
 
   const header = document.createElement("button");
   header.className = "accordion";
-  header.textContent = chapter.title;
+  header.textContent = `Chapter ${i + 1}: ${chapter.title}`;
 
   const content = document.createElement("div");
   content.className = "panel";
