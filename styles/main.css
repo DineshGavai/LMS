@@ -15,7 +15,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   z-index: 100;
   background-color: #ffffff;
@@ -24,12 +24,14 @@ header {
 }
 
 .logo {
-  height: 30px;
+  height: 80px;
 }
 
 nav {
   display: flex;
   gap: 16px;
+  align-items: center;
+
 }
 
 nav a,
@@ -63,6 +65,7 @@ nav select.active {
   cursor: pointer;
   text-decoration: none;
   margin: 0 15px;
+  margin-bottom: 10px;
   padding-bottom: 5px;
 }
 
@@ -89,7 +92,7 @@ header select {
   text-wrap: nowrap;
   vertical-align: middle;
   position: relative;
-  top: -8px;
+  top: -4px;
 }
 
 /* Add hover effect like nav links */
