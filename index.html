@@ -1,156 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | SmartStudy LMS</title>
-    <link rel="stylesheet" href="./styles/main.css" />
-  </head>
 
-  <body>
-    <!-- Header (UNCHANGED) -->
-    <header>
-      <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="courses.html">Courses</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | SmartStudy LMS</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
 
-        <select id="quizSelect">
-          <option value="">Quiz</option>
-          <option value="English">English</option>
-          <option value="Science">Science</option>
-          <option value="Mathematics">Mathematics</option>
-        </select>
+<body>
+  <!-- Header (UNCHANGED) -->
+  <header>
+    <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="courses.html">Courses</a>
 
-        <a href="study-planner.html" id="studyLink">Study Planner</a>
-        <a href="announcements.html" id="announcementLink">Announcements</a>
+      <select id="quizSelect">
+        <option value="">Quiz</option>
 
-        <div id="authButtonContainer"></div>
-      </nav>
-      <img src="./images/logo_school.jpeg" alt="SmartStudy Logo" class="logo" />
-    </header>
+        <optgroup label="Grade 6">
+          <option value="English|6">English – 6 Grade</option>
+          <option value="Science|6">Science – 6 Grade</option>
+          <option value="Mathematics|6">Mathematics – 6 Grade</option>
+        </optgroup>
 
-    <!-- Fixed Background Hero (hidden when logged in) -->
-    <section class="landing-bg" id="heroSection">
-      <h1 class="welcome-text">Welcome to SmartStudy LMS</h1>
-      <p>
-        Welcome to SmartStudy an innovative Learning Management System designed
-        to promote balance between academics and well-being. The platform offers
-        organized access to study materials, interactive quizzes, and wellness
-        reminders — enabling students to learn efficiently while maintaining a
-        healthy routine.
-      </p>
-    </section>
+        <optgroup label="Grade 7">
+          <option value="English|7">English – 7 Grade</option>
+          <option value="Science|7">Science – 7 Grade</option>
+          <option value="Mathematics|7">Mathematics – 7 Grade</option>
+        </optgroup>
 
-    <!-- Landing Content (shown when not logged in) -->
-    <section class="landing-content" id="landingSection">
-      <h2>Empower Your Learning Journey</h2>
-      <p>
-        SmartStudy LMS offers interactive courses, quizzes, study planning
-        tools, and more to help you achieve your goals.
-      </p>
+        <optgroup label="Grade 8">
+          <option value="English|8">English – 8 Grade</option>
+          <option value="Science|8">Science – 8 Grade</option>
+          <option value="Mathematics|8">Mathematics – 8 Grade</option>
+        </optgroup>
+      </select>
 
-      <div class="features">
-        <div class="feature">
-          <h3>Comprehensive Courses</h3>
-          <p>Access a wide range of subjects with expert-designed materials.</p>
-        </div>
-        <div class="feature">
-          <h3>Interactive Quizzes</h3>
-          <p>
-            Test your knowledge with subject-specific quizzes and track
-            progress.
-          </p>
-        </div>
-        <div class="feature">
-          <h3>Study Planner</h3>
-          <p>Organize your schedule and stay on top of your studies.</p>
-        </div>
-        <div class="feature">
-          <h3>Announcements</h3>
-          <p>Stay informed with the latest updates and notifications.</p>
-        </div>
+
+      <a href="study-planner.html" id="studyLink">Study Planner</a>
+      <a href="announcements.html" id="announcementLink">Announcements</a>
+
+      <div id="authButtonContainer"></div>
+    </nav>
+    <img src="./images/logo_school.jpeg" alt="SmartStudy Logo" class="logo" />
+  </header>
+
+  <!-- Fixed Background Hero (hidden when logged in) -->
+  <section class="landing-bg" id="heroSection">
+    <h1 class="welcome-text">Welcome to SmartStudy LMS</h1>
+    <p>
+      Welcome to SmartStudy an innovative Learning Management System designed
+      to promote balance between academics and well-being. The platform offers
+      organized access to study materials, interactive quizzes, and wellness
+      reminders — enabling students to learn efficiently while maintaining a
+      healthy routine.
+    </p>
+  </section>
+
+  <!-- Landing Content (shown when not logged in) -->
+  <section class="landing-content" id="landingSection">
+    <h2>Empower Your Learning Journey</h2>
+    <p>
+      SmartStudy LMS offers interactive courses, quizzes, study planning
+      tools, and more to help you achieve your goals.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Comprehensive Courses</h3>
+        <p>Access a wide range of subjects with expert-designed materials.</p>
       </div>
-
-      <div>
-        <h1>Vision and Mission</h1>
-        <div class="tile vision-mission">
-          <p>
-            SmartStudy is inspired by the everyday challenges students face in
-            managing academics, time, and health effectively. Developed by
-            students of Modern Middle East International School (MMEIS), the
-            platform aims to provide a unified space where learners can plan
-            their studies, access essential resources, and maintain a balanced
-            routine. Our vision is to promote a holistic learning experience
-            that encourages productivity without compromising well-being.
-            Through a clean, student-friendly interface, SmartStudy integrates
-            study tools, interactive quizzes, and wellness reminders — helping
-            students stay organized, focused, and healthy as they pursue
-            academic success.
-          </p>
-        </div>
+      <div class="feature">
+        <h3>Interactive Quizzes</h3>
+        <p>
+          Test your knowledge with subject-specific quizzes and track
+          progress.
+        </p>
       </div>
-    </section>
-
-    <!-- Dashboard Cards (shown when logged in) -->
-    <main class="dashboard" id="dashboardSection">
-      <!-- Profile Card -->
-      <div class="tile profile-card" id="profileCard">
-        <!-- <img src="./images/default-avatar.png" alt="Profile Picture" /> -->
-        <div>
-          <h1 id="profile_name">User Name</h1>
-          <p id="profile_email">user@example.com</p>
-        </div>
-      </div>
-
-      <div class="tile" onclick="location.href='courses.html'">
-        <h3>Courses</h3>
-        <p>Access all your enrolled courses and learning materials.</p>
-      </div>
-
-      <div class="tile" onclick="location.href='quiz.html'">
-        <h3>Quizzes</h3>
-        <p>Challenge yourself with interactive subject-wise quizzes.</p>
-      </div>
-
-      <div class="tile" onclick="location.href='study-planner.html'">
+      <div class="feature">
         <h3>Study Planner</h3>
-        <p>Plan your study schedule and track your daily progress.</p>
+        <p>Organize your schedule and stay on top of your studies.</p>
       </div>
-
-      <div class="tile" onclick="location.href='announcements.html'">
+      <div class="feature">
         <h3>Announcements</h3>
-        <p>Stay updated with the latest notifications and academic news.</p>
+        <p>Stay informed with the latest updates and notifications.</p>
       </div>
-    </main>
+    </div>
 
-    <footer>
-      <p>© 2025 SmartStudy LMS | Created by Students</p>
-    </footer>
+    <div>
+      <h1>Vision and Mission</h1>
+      <div class="tile vision-mission">
+        <p>
+          SmartStudy is inspired by the everyday challenges students face in
+          managing academics, time, and health effectively. Developed by
+          students of Modern Middle East International School (MMEIS), the
+          platform aims to provide a unified space where learners can plan
+          their studies, access essential resources, and maintain a balanced
+          routine. Our vision is to promote a holistic learning experience
+          that encourages productivity without compromising well-being.
+          Through a clean, student-friendly interface, SmartStudy integrates
+          study tools, interactive quizzes, and wellness reminders — helping
+          students stay organized, focused, and healthy as they pursue
+          academic success.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <script src="./scripts/global.js" type="module"></script>
-    <script>
-      const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-      const landingSection = document.getElementById("landingSection");
-      const dashboardSection = document.getElementById("dashboardSection");
-      const heroSection = document.getElementById("heroSection");
-      const profileName = document.getElementById("profile_name");
-      const profileEmail = document.getElementById("profile_email");
+  <!-- Dashboard Cards (shown when logged in) -->
+  <main class="dashboard" id="dashboardSection">
+    <!-- Profile Card -->
+    <div class="tile profile-card" id="profileCard">
+      <!-- <img src="./images/default-avatar.png" alt="Profile Picture" /> -->
+      <div>
+        <h1 id="profile_name">User Name</h1>
+        <p id="profile_email">user@example.com</p>
+      </div>
+    </div>
 
-      if (loggedUser) {
-        // Hide hero and landing, show dashboard
-        heroSection.style.display = "none";
-        landingSection.style.display = "none";
-        dashboardSection.classList.add("show");
+    <div class="tile" onclick="location.href='courses.html'">
+      <h3>Courses & Quizzes</h3>
+      <p>Access all your enrolled courses and learning materials.</p>
+    </div>
 
-        profileName.textContent = loggedUser.name || "User Name";
-        profileEmail.textContent = loggedUser.email || "user@example.com";
-      } else {
-        // Show hero and landing, hide dashboard
-        heroSection.style.display = "block";
-        landingSection.style.display = "block";
-        dashboardSection.classList.remove("show");
-      }
-    </script>
-  </body>
+   
+
+    <div class="tile" onclick="location.href='study-planner.html'">
+      <h3>Study Planner</h3>
+      <p>Plan your study schedule and track your daily progress.</p>
+    </div>
+
+    <div class="tile" onclick="location.href='announcements.html'">
+      <h3>Announcements</h3>
+      <p>Stay updated with the latest notifications and academic news.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 SmartStudy LMS | Created by Students</p>
+  </footer>
+
+  <script src="./scripts/global.js" type="module"></script>
+  <script>
+    const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    const landingSection = document.getElementById("landingSection");
+    const dashboardSection = document.getElementById("dashboardSection");
+    const heroSection = document.getElementById("heroSection");
+    const profileName = document.getElementById("profile_name");
+    const profileEmail = document.getElementById("profile_email");
+
+    if (loggedUser) {
+      // Hide hero and landing, show dashboard
+      heroSection.style.display = "none";
+      landingSection.style.display = "none";
+      dashboardSection.classList.add("show");
+
+      profileName.textContent = loggedUser.name || "User Name";
+      profileEmail.textContent = loggedUser.email || "user@example.com";
+    } else {
+      // Show hero and landing, hide dashboard
+      heroSection.style.display = "block";
+      landingSection.style.display = "block";
+      dashboardSection.classList.remove("show");
+    }
+  </script>
+</body>
+
 </html>

@@ -8,7 +8,7 @@ const studyLink = document.getElementById("studyLink");
 const announcementLink = document.getElementById("announcementLink");
 const authButtonContainer = document.getElementById("authButtonContainer");
 
-// Public pages
+// Public pages (accessible without login)
 const public_routes = [
   "index.html",
   "courses.html",
@@ -36,15 +36,21 @@ if (loggedInUser) {
     authButtonContainer.innerHTML = `<button id="navLogoutBtn" class="nav-btn">Logout</button>`;
     document.getElementById("navLogoutBtn").addEventListener("click", () => {
       localStorage.removeItem("loggedInUser");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     });
   }
+
+  // ✅ If user tries to visit login or register while logged in → redirect home
+  if (["login.html", "register.html"].includes(currentPage)) {
+    window.location.href = "index.html";
+  }
+
 } else {
   // Hide private links
   if (studyLink) studyLink.style.display = "none";
   if (announcementLink) announcementLink.style.display = "none";
 
-  // Redirect if trying to access a private page
+  // ✅ Redirect to login if user tries to open a private page
   if (!public_routes.includes(currentPage)) {
     window.location.href = "login.html";
   }
@@ -57,14 +63,18 @@ if (loggedInUser) {
 
 // ✅ Quiz dropdown navigation
 const quizSelect = document.getElementById("quizSelect");
+
 if (quizSelect) {
   quizSelect.addEventListener("change", function () {
-    const subject = this.value;
-    if (subject) {
-      window.location.href = `subject.html?subject=${encodeURIComponent(
-        subject
-      )}#quiz-anchor`;
-    }
+    const selectedValue = this.value;
+    if (!selectedValue) return;
+
+    const [subject, grade] = selectedValue.split("|");
+    const url = `subject.html?subject=${encodeURIComponent(
+      subject
+    )}&grade=${encodeURIComponent(grade)}#quiz-anchor`;
+
+    window.location.href = url;
   });
 }
 
@@ -74,3 +84,4 @@ window.addEventListener("pageshow", (event) => {
     window.location.reload();
   }
 });
+  

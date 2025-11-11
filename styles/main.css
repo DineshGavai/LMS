@@ -45,6 +45,13 @@ nav select {
   border-radius: 0;
 }
 
+nav select *{
+  text-align: left;
+}
+nav select option[value=""]{
+  text-align: center;
+}
+
 nav a:hover {
   color: #000;
 }

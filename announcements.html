@@ -11,25 +11,41 @@
   <body>
     <!-- Header -->
     <header>
-      <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="courses.html">Courses</a>
+    <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
+    <nav>
+      <a href="index.html" >Home</a>
+      <a href="courses.html">Courses</a>
 
-        <select id="quizSelect">
-          <option value="">Quiz</option>
-          <option value="English">English</option>
-          <option value="Science">Science</option>
-          <option value="Mathematics">Mathematics</option>
-        </select>
+      <select id="quizSelect">
+        <option value="">Quiz</option>
 
-        <a href="study-planner.html" id="studyLink">Study Planner</a>
-        <a href="announcements.html" id="announcementLink">Announcements</a>
+        <optgroup label="Grade 6">
+          <option value="English|6">English – 6 Grade</option>
+          <option value="Science|6">Science – 6 Grade</option>
+          <option value="Mathematics|6">Mathematics – 6 Grade</option>
+        </optgroup>
 
-        <div id="authButtonContainer"></div>
-      </nav>
-      <img src="./images/logo_school.jpeg" alt="SmartStudy Logo" class="logo" />
-    </header>
+        <optgroup label="Grade 7">
+          <option value="English|7">English – 7 Grade</option>
+          <option value="Science|7">Science – 7 Grade</option>
+          <option value="Mathematics|7">Mathematics – 7 Grade</option>
+        </optgroup>
+
+        <optgroup label="Grade 8">
+          <option value="English|8">English – 8 Grade</option>
+          <option value="Science|8">Science – 8 Grade</option>
+          <option value="Mathematics|8">Mathematics – 8 Grade</option>
+        </optgroup>
+      </select>
+
+
+      <a href="study-planner.html" id="studyLink">Study Planner</a>
+      <a href="announcements.html" id="announcementLink" class="active">Announcements</a>
+
+      <div id="authButtonContainer"></div>
+    </nav>
+    <img src="./images/logo_school.jpeg" alt="SmartStudy Logo" class="logo" />
+  </header>
 
     <main>
       <h1>Announcements</h1>
