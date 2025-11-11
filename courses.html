@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Courses | SmartLearn LMS</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/courses.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Courses | SmartLearn LMS</title>
-  <link rel="stylesheet" href="./styles/main.css" />
-  <link rel="stylesheet" href="./styles/courses.css" />
-</head>
-
-<body>
-  <!-- Header (UNCHANGED) -->
-  <header>
-    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+  <body>
+    <!-- Header (UNCHANGED) -->
+    <header>
+    <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" >Home</a>
       <a href="courses.html" class="active">Courses</a>
 
       <select id="quizSelect">
         <option value="">Quiz</option>
-        <option value="English">English</option>
-        <option value="Science">Science</option>
-        <option value="Mathematics">Mathematics</option>
+
+        <optgroup label="Grade 6">
+          <option value="English|6">English – 6 Grade</option>
+          <option value="Science|6">Science – 6 Grade</option>
+          <option value="Mathematics|6">Mathematics – 6 Grade</option>
+        </optgroup>
+
+        <optgroup label="Grade 7">
+          <option value="English|7">English – 7 Grade</option>
+          <option value="Science|7">Science – 7 Grade</option>
+          <option value="Mathematics|7">Mathematics – 7 Grade</option>
+        </optgroup>
+
+        <optgroup label="Grade 8">
+          <option value="English|8">English – 8 Grade</option>
+          <option value="Science|8">Science – 8 Grade</option>
+          <option value="Mathematics|8">Mathematics – 8 Grade</option>
+        </optgroup>
       </select>
+
 
       <a href="study-planner.html" id="studyLink">Study Planner</a>
       <a href="announcements.html" id="announcementLink">Announcements</a>
 
       <div id="authButtonContainer"></div>
     </nav>
-    <img src="./images/logo.png" alt="SmartLearn Logo" class="logo" />
+    <img src="./images/logo_school.jpeg" alt="SmartStudy Logo" class="logo" />
   </header>
 
-
-  <main>
-    <div>
-      <h1>Courses</h1>
+    <main>
+      <div>
+        <h1>Courses</h1>
 
       <div class="btn-box">
         <select id="gradeSelect">
@@ -45,15 +59,12 @@
         </select>
       </div>
 
-      <div id="courses">
-        <!-- Course tiles will be dynamically added here -->
-      </div>
-    </div>
-  </main>
+      <div id="courses"></div>
+    </main>
 
-  <footer>
-    <p>© 2025 SmartLearn LMS | Created by Students</p>
-  </footer>
+    <footer>
+      <p>© 2025 SmartLearn LMS | Created by Students</p>
+    </footer>
 
   <script src="./scripts/global.js" type="module"></script>
   <script src="./scripts/courses.js" type="module"></script>

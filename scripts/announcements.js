@@ -1,24 +1,14 @@
 // JSON for 4 such announcements
 const announcements = [
     {
-        title: "🎉 Science Exhibition Coming Soon!",
-        content: "All students are encouraged to participate. Topics on Clean Energy and Recycling are preferred.",
-        date: "5th November 2025"
+        title: "📕 Exam dates for 10th and 12th Grade for 2026 are Announced!",
+        content: "All students are informed that the exam dates for 10th and 12th Grade for the year 2026 have been announced. Please check the school website for detailed schedule.",
+        date: "15th November 2025"
     },
     {
-        title: "📚 New Library Books Arrived!",
-        content: "We have added over 200 new books to our library collection. Check them out!",
-        date: "12th October 2025"
-    },
-    {
-        title: "🏆 Sports Day Results Announced!",
-        content: "Congratulations to all participants! The results are now available on the notice board.",
-        date: "20th September 2025"
-    },
-    {
-        title: "🖼️ Art Competition Winners!",
-        content: "The winners of the annual art competition have been announced. Visit the art room to see their work.",
-        date: "15th August 2025"
+        title: "📕 Open Book Test for Grade 8!",
+        content: "All students are informed that there will be an open book test on 21th to 24th November 2025. Please prepare accordingly.",
+        date: "12th November 2025"
     }
 ];
 

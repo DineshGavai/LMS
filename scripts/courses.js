@@ -8,7 +8,7 @@ function renderCourses(grade) {
   const courses = coursesData[grade];
   courses.forEach((course) => {
     const courseTile = document.createElement("a");
-    courseTile.href = `subject.html?subject=${encodeURIComponent(course.title)}&grade=${grade}`;
+    courseTile.href = `subject.html?subject=${encodeURIComponent(course.subject)}&grade=${grade}`;
     courseTile.className = "tile";
     courseTile.innerHTML = `
       <h3>${course.title}</h3>

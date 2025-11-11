@@ -302,13 +302,34 @@
 }
 
 #unifiedBreakTask {
-  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: fit-content;
-  margin: 12px auto;
-  color: #ddd;
-  background-color: #28a74638;
-  padding: 16px;
-  border-radius: 100px;
+  margin: 20px auto;
+  padding: 18px 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #28a74533, #1f6bb333);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.break-task {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.break-subtask {
+  font-size: 16px;
+  font-weight: 400;
+  color: #d0f0d0;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 12px;
+  border-radius: 8px;
 }
 
 .timer-buttons {

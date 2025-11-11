@@ -1,5 +1,6 @@
 import { coursesData } from "./global.js";
 
+const MAX_TIME = 25;
 
 // --- STEP 2: Get elements ---
 const gradeSelect = document.getElementById("gradeSelect");
@@ -248,10 +249,22 @@ function stopCurrentTimer() {
 
 // --- Break Activities ---
 const breakActivities = [
-  "👁️ Eye Exercise",
-  "💪 Body Movement",
-  "🚶 Move Away From Screen",
-  "☕ Stretch & Hydrate",
+  {
+    task: "👁️ Eye Exercise",
+    subtask: "Blink 10 times or look 20 ft away for 20 seconds.",
+  },
+  {
+    task: "💪 Body Movement",
+    subtask: "Roll your shoulders and stretch your arms.",
+  },
+  {
+    task: "🚶 Move Away From Screen",
+    subtask: "Walk around or check outside for a minute.",
+  },
+  {
+    task: "☕ Stretch & Hydrate",
+    subtask: "Stand, take a sip of water, and stretch your legs.",
+  },
 ];
 
 // Add small title + breakTask into timerBody for unified UI if not present
@@ -302,7 +315,7 @@ function buildPomodoroPlan(totalMinutes) {
   let remaining = totalMinutes;
   // support fractional minutes
   while (remaining > 0.1) {
-    const studyBlock = Math.min(0.1, remaining);
+    const studyBlock = Math.min(MAX_TIME, remaining);
     plan.push({ type: "study", minutes: studyBlock });
     remaining -= studyBlock;
     if (remaining > 0.1) {
@@ -382,8 +395,13 @@ function startPomodoroPhase() {
 
     // Activity third (big & bold)
     unifiedBreakTask.style.display = "block";
-    unifiedBreakTask.innerHTML =
+    const randomActivity =
       breakActivities[Math.floor(Math.random() * breakActivities.length)];
+
+    unifiedBreakTask.innerHTML = `
+  <div class="break-task">${randomActivity.task}</div>
+  <div class="break-subtask">${randomActivity.subtask}</div>
+`;
 
     // Study summary fourth
     totalTimeEl.style.order = "4";
