@@ -12,12 +12,12 @@
 <body>
   <!-- Header (UNCHANGED) -->
   <header>
-    <img src="./images/logo.png" alt="SmartStudy Logo" class="logo" />
+    <img src="./images/logo.jpg" alt="SmartStudy Logo" class="logo" />
     <nav>
       <a href="index.html" >Home</a>
-      <a href="courses.html">Courses</a>
+      <a href="courses.html" class="active">Courses</a>
 
-      <select  class="active" id="quizSelect">
+      <select  id="quizSelect">
         <option value="">Quiz</option>
 
         <optgroup label="Grade 6">
@@ -56,19 +56,6 @@
     <div id="resources">
       <h2>Resources</h2>
     </div>
-
-    <!-- Hidden quiz anchor -->
-    <div id="quiz-anchor"></div>
-
-    <form>
-      <h2>Quiz</h2>
-      <div id="quiz"></div>
-
-      <div class="btn-box">
-        <p id="score"></p>
-        <button id="check_answer_btn">Check Answer</button>
-      </div>
-    </form>
   </main>
 
   <!-- Footer -->

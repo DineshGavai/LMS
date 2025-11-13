@@ -24,16 +24,20 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: sticky; */
+  position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background-color: #ffffff;
   padding: 10px 40px;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .logo {
-  height: 80px;
+  height: 100px;
+}
+
+header.scrolled .logo {
+  height: 60px;
 }
 
 nav {
@@ -200,6 +204,7 @@ main {
 h1,
 h2 {
   margin-top: 36px;
+  text-wrap: pretty;
 }
 
 .tile h1,

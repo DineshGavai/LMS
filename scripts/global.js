@@ -70,9 +70,9 @@ if (quizSelect) {
     if (!selectedValue) return;
 
     const [subject, grade] = selectedValue.split("|");
-    const url = `subject.html?subject=${encodeURIComponent(
+    const url = `quiz.html?subject=${encodeURIComponent(
       subject
-    )}&grade=${encodeURIComponent(grade)}#quiz-anchor`;
+    )}&grade=${encodeURIComponent(grade)}`;
 
     window.location.href = url;
   });
@@ -84,6 +84,12 @@ window.addEventListener("pageshow", (event) => {
     window.location.reload();
   }
 });
+
+let header = document.querySelector("header");
+
+window.addEventListener("scroll", ()=>{
+  header.classList.toggle("scrolled", window.scrollY > 60)
+})
 
 export const coursesData = {
   // 6th grade
