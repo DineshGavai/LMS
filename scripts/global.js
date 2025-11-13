@@ -13,6 +13,7 @@ const public_routes = [
   "index.html",
   "courses.html",
   "subject.html",
+  "quiz.html",
   "login.html",
   "register.html",
 ];
